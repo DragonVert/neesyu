@@ -17,13 +17,13 @@
   </thead>
 
   <tbody>
-    <% @events = @events.sort_by { |e| e.horaire} %>
+    <% @events = @events.sort_by { |e| e.debut} %>
     <% @events.each do |event| %>
       <tr >
         <td><%= link_to event.titre, event %></td>
         <td><%= event.description_courte %></td>
         <td><%= event.prix %></td>
-        <td><%= event.horaire_affiche %></td>
+        <td><%= event.debut_affiche %></td>
       </tr>
     <% end %>
   </tbody>

@@ -40,12 +40,6 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    annee = params[:event]["horaire(1i)"].to_i
-    mois = params[:event]["horaire(2i)"].to_i
-    jour = params[:event]["horaire(3i)"].to_i
-    heure = params[:event]["horaire(4i)"].to_i
-    minute = params[:event]["horaire(5i)"].to_i
-    @event.horaire = DateTime.new(annee,mois,jour,heure,minute)
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: "L'événement a été modifié." }
@@ -76,6 +70,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:titre, :description, :prix)
+      params.require(:event).permit(:titre, :description, :prix, :debut, :fin)
     end
 end

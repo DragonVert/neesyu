@@ -1,17 +1,23 @@
 <div class="container">
 
 </div> <%= simple_form_for(@event) do |f| %>
+
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :titre %>
-    <%= f.input :description %>
-    <%= f.input :prix %>
-    <%= f.input :horaire %>
+    <%= f.input :titre, placeholder: "Cours de 5 rythmes" %>
+    <%= f.input :description, placeholder: "Pour danser sans penser mais se dépenser..." %>
+    <%= f.input :prix, placeholder: "0" %>
+    <%= f.input :debut, placeholder: DateTime.new %>
+    <%= f.input :fin, placeholder: DateTime.new %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit , 'Enregistrer' %>
+    <% if @event.persisted? %>
+        <%= f.button :submit , 'Enregistrer' %>
+    <% else %>
+        <%= f.button :submit , 'Créer' %>
+    <% end %>
   </div>
 <% end %>
 </div>
