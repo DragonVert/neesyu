@@ -1,6 +1,7 @@
 <div class="container">
+<div class ="col-md-8 .col-md-offset-4">
 
-</div> <%= simple_form_for(@event) do |f| %>
+  <%= simple_form_for(@event) do |f| %>
 
   <%= f.error_notification %>
 
@@ -20,12 +21,13 @@
     <%= f.input :contact, placeholder: "Marie au 06 06 06 06 06 ou marie.danse@neesyu.com" %>
   </div>
 
-  <div class="form-actions">
+  <!-- <div class="form-actions"> -->
     <% if @event.persisted? %>
-        <%= f.button :submit , 'Enregistrer' %>
+        <%= link_to "Enregistrer", event_path(@event), class: "btn btn-primary" %>
     <% else %>
-        <%= f.button :submit , 'Créer' %>
+        <%= link_to "Créer", event_path(@path), class: "btn btn-primary" %>
     <% end %>
-  </div>
+
 <% end %>
+</div>
 </div>

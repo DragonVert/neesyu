@@ -9,10 +9,11 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Date</th>
       <th>Titre</th>
-      <th>Description</th>
+      <th>Lieu</th>
       <th>Prix</th>
-      <th>Horaire.....</th>
+      <th>Tarif réd.</th>
     </tr>
   </thead>
 
@@ -20,10 +21,11 @@
     <% @events = @events.sort_by { |e| e.debut} %>
     <% @events.each do |event| %>
       <tr >
-        <td><%= link_to event.titre, event %></td>
-        <td><%= event.description_courte %></td>
-        <td><%= event.prix %></td>
         <td><%= event.debut_affiche %></td>
+        <td><%= link_to event.titre, event %></td>
+        <td><%= event.lieu %></td>
+        <td><%= event.prix %></td>
+        <td><%= event.reduit ? "Oui" : "Non" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -5,7 +5,7 @@ class Event < ApplicationRecord
     # Desciption avec le N premieres lettres seulement du champs
     def description_courte
       if self.description
-          return self.description[1..10]
+          return self.description[0..10]+"..."
       end
     end
 
