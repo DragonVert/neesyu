@@ -6,9 +6,9 @@
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2">
   <!-- Table -->
-<table class="table">
+<table class="table table-hover">
   <thead>
-    <tr>
+    <tr >
       <th>Date</th>
       <th>Titre</th>
       <th>Lieu</th>
@@ -20,9 +20,9 @@
   <tbody>
     <% @events = @events.sort_by { |e| e.debut} %>
     <% @events.each do |event| %>
-      <tr >
+      <tr data-link="<%= event_path(event) %>">
         <td><%= event.debut_affiche %></td>
-        <td><%= link_to event.titre, event %></td>
+        <td><%= event.titre %></td>
         <td><%= event.lieu %></td>
         <td><%= event.prix %></td>
         <td><%= event.reduit ? "Oui" : "Non" %></td>
@@ -40,4 +40,3 @@
 <p class="text-center">
 <%= link_to 'Ajouter un événement', new_event_path , class: "btn btn-primary"%>
 </p>
-
