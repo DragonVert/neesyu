@@ -196,7 +196,7 @@ def remplir_les_tables
     #               Création des stages de Marc Regard du Cygne
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec Marc "
+    @titre = "Stage de 5 rythmes avec Marc long libelle "
     @description = "Stage d'une journée"
     @prix = 75
     @duree = 6.hour + 30.minute
