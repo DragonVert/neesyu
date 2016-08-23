@@ -4,6 +4,8 @@
 
 if Rails.env == "development"
   Event.destroy_all
+  Profil.destroy_all
+  User.destroy_all
   puts "env development : Table events raz"
 end
 
@@ -30,10 +32,33 @@ def creer_la_liste
         evt.ville = @ville
         evt.pays = @pays
         evt.reduit = @reduit
-        evt.facilitateur = @facilitateur
+        evt.user_id = @user.id
         evt.save
     end
 end
+
+# -----------------------------------------------------------------------------
+#   Creer les profils
+# -----------------------------------------------------------------------------
+
+@user_peter = User.create!( email: "peter@neesyu.com", password: "password")
+@user_marc = User.create!( email: "marc@neesyu.com", password: "password")
+@user_amelie = User.create!( email: "amelie@neesyu.com", password: "password")
+@user_lise = User.create!( email: "lise@neesyu.com", password: "password")
+@user_omar = User.create!( email: "omar@neesyu.com", password: "password")
+@user_carine = User.create!( email: "carine@neesyu.com", password: "password")
+@user_veronique = User.create!( email: "veronique@neesyu.com", password: "password")
+@user_garance = User.create!( email: "garance@neesyu.com", password: "password")
+
+@profil_peter = Profil.create!(nom: "Wilberforce", prenom:"Peter", pseudo: "Peter W.", user: @user_peter)
+@profil_marc = Profil.create!(nom: "Sylvestre", prenom: "Marc", pseudo: "Marc S.", user: @user_marc)
+@profil_amelie = Profil.create!(nom: "Schweiger", prenom: "Amélie", pseudo:"Amélie S.", user:@user_amelie)
+@profil_lise = Profil.create!(nom: "Merlin", prenom: "Lise", pseudo:"Lise M.", user:@user_lise)
+@profil_omar = Profil.create!(nom: "Omerzay", prenom:"Omar", pseudo: "Omar O.", user: @user_omar)
+@profil_carine = Profil.create!(nom: "Bourny", prenom: "Carine", pseudo: "Carine B.", user: @user_omar)
+@profil_veronique = Profil.create!(nom: "Champalou", prenom: "Véronique", pseudo: "Véronique C.", user: @user_veronique)
+@profil_garance = Profil.create!(nom: "Monzies", prenom: "Garance", pseudo: "Garance M.", user: @user_garance)
+
 
 # Parametrer la salle
 def salle_micadanse_may_b
@@ -95,12 +120,13 @@ def remplir_les_tables
     #               Création des cours de Peter regulier
     #------------------------------------------------------------------------------
 
+    @user = @user_peter
+
     @titre = "Cours de danse des 5 rythmes"
     @description = "Cours de danse des 5 rythmes, Corps, souffle, mouvement : La danse de l'Etre"
     @prix = 20
     @duree = 2.hour
     @reduit = "20 € / 17 € / 14 €"
-    @facilitateur = "Peter Wilberforce"
 
     @jour = DateTime.new(2016,10,5,20,00,00)
     @liste =[]
@@ -129,7 +155,6 @@ def remplir_les_tables
     @prix = 20
     @duree = 2.hour
     @reduit = "20 € / 17 € / 14 €"
-    @facilitateur = "Peter Wilberforce"
 
 
     @liste = [DateTime.new(2016,9,13,20,00)]
@@ -147,7 +172,6 @@ def remplir_les_tables
     @prix = 65
     @reduit = "Tarif: 65€ une journée - 170€ trois journées - 360€ les 7"
     @duree = 5.hour + 30.minute
-    @facilitateur = "Peter Wilberforce"
 
     @liste = [DateTime.new(2016,10,2,12,00),
               DateTime.new(2016,11,6,12,00),
@@ -166,12 +190,13 @@ def remplir_les_tables
     #               Création des cours de Marc Micadanse
     #------------------------------------------------------------------------------
 
+    @user = @user_marc
+
     @titre = "Cours de danse des 5 rythmes"
     @description = "Cours avec Marc dans Paris"
     @prix = 20
     @duree = 2.hour
     @reduit = "A voir suivant demande"
-    @facilitateur = "Marc Silvestre"
 
     @liste = [DateTime.new(2016,9,16,19,30),
               DateTime.new(2016,10,7,19,30),
@@ -192,7 +217,6 @@ def remplir_les_tables
     @prix = 20
     @duree = 2.hour
     @reduit = ""
-    @facilitateur = "Marc Silvestre"
 
     @liste = [DateTime.new(2016,9,11,19,30)]
 
@@ -208,7 +232,6 @@ def remplir_les_tables
     @prix = 75
     @duree = 6.hour + 30.minute
     @reduit = "65"
-    @facilitateur = "Marc Silvestre"
 
 
     @liste = [DateTime.new(2016,9,4,12,00),
@@ -225,12 +248,13 @@ def remplir_les_tables
     #               Création des cours de Amélie
     #------------------------------------------------------------------------------
 
+    @user = @user_amelie
+
     @titre = "Cours de danse des 5 rythmes"
     @description = "Cours de danse des 5 rythmes"
     @prix = 18
     @reduit = "18€ & 15€ étudiants, solidaire. 150€ carte 10 cours (valable dimanches et mardis)."
     @duree = 2.hour
-    @facilitateur = "Amélie Schweiger"
 
     @liste = [DateTime.new(2016,9,18,11,00),
               DateTime.new(2016,9,25,11,00),
@@ -279,7 +303,6 @@ def remplir_les_tables
     @prix = 18
     @reduit =  "18€ & 15€ étudiants, solidaire. 150€ carte 10 cours (valable dimanches et mardis)."
     @duree = 2.hour
-    @facilitateur = "Amélie Schweiger"
 
     @liste = [DateTime.new(2016,9,20,19,30),
               DateTime.new(2016,10,18,19,30),
@@ -299,7 +322,6 @@ def remplir_les_tables
     @prix = 75
     @reduit = "60€ étudiants et  solidaire. 300€ le cycle complet."
     @duree = 5.hour
-    @facilitateur = "Amélie Schweiger"
 
     @liste = [DateTime.new(2016,10,1,14,30),
               DateTime.new(2016,12,17,14,30),
@@ -315,12 +337,13 @@ def remplir_les_tables
     #               Création des cours de Lise
     #------------------------------------------------------------------------------
 
+    @user = @user_lise
+
     @titre = "Cours de danse des 5 rythmes"
     @description = "Cours de danse des 5 rythmes avec Lise"
     @prix = 20
     @duree = 2.hour
     @reduit = "Cartes d'abonnement au trimestre et à l'année dès septembre"
-    @facilitateur = "Lise Merlin"
 
     @jour = DateTime.new(2016,9,7,19,30)
     @liste =[]
@@ -346,12 +369,14 @@ def remplir_les_tables
     #               Création des cours d'Omar
     #------------------------------------------------------------------------------
 
+    @user = @user_omar
+
+
     @titre = "Stage de danse des 5 rythmes"
     @description = "Cours de danse des 5 rythmes"
     @prix = 20
     @reduit = "Oui, à demander sur place "
     @duree = 2.hour
-    @facilitateur = "Omar Omzeray"
 
     @liste = [DateTime.new(2016,9,2,19,30)]
 
@@ -363,12 +388,13 @@ def remplir_les_tables
     #               Création des cours de Véronique May B
     #------------------------------------------------------------------------------
 
+    @user = @user_veronique
+
     @titre = "Stage de danse des 5 rythmes"
     @description = "Cours de danse des 5 rythmes"
     @prix = 20
     @reduit =
     @duree = 2.hour + 30.minute
-    @facilitateur = "Véronique Champalou"
 
     @liste = [DateTime.new(2016,9,6,19,30),
               DateTime.new(2016,10,11,19,30),
@@ -389,7 +415,6 @@ def remplir_les_tables
     @prix = 20
     @reduit =
     @duree = 2.hour
-    @facilitateur = "Véronique Champalou"
 
 
     @liste = [DateTime.new(2016,9,20,16,00),
@@ -410,12 +435,13 @@ def remplir_les_tables
     #               Création des cours de Garance
     #------------------------------------------------------------------------------
 
+    @user = @user_garance
+
     @titre = "Atelier de Open floor"
     @description = "Pas de description"
     @prix = 20
     @reduit = "15 (étudiants, RSA...)"
     @duree = 2.hour
-    @facilitateur = "Garance Monzies"
 
     @liste = [DateTime.new(2016,9,25,11,00),
               DateTime.new(2016,10,23,11,00),

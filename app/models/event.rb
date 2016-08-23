@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
 
+    belongs_to :user
+
     # Jour de la semaine pour affichage
     JOURDESEMAINE = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
     # Desciption avec le N premieres lettres seulement du champs
