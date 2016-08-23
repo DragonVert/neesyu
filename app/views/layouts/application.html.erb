@@ -14,6 +14,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+
+    <!-- Pour compense la navbar fixed top -->
+    <div id="fix-for-navbar-fixed-top-spacing" style="height: 71px;">&nbsp;</div>
+
     <%= yield %>
     <%= javascript_include_tag 'application' %>
   </body>

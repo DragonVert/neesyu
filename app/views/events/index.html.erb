@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% @titre_page = 'Liste' %>
-<h3 class="text-center">Liste des événements </h1>
+<h4 class="text-center"> <em> Liste des événements </em></h4>
 
 <div class="container">
     <% @events = @events.sort_by { |e| e.debut} %>
@@ -11,18 +11,21 @@
         <div class ="row">
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">  <%= event.debut_jour %> </div>
         </div>
+        <hr size="1" color="orange">
       <% end %>
+
       <%= link_to event do %>
-          <font color="#FF0000">
+          <font color="#9A3619">
           <div class="row">
               <div class="col-xs-1 col-sm-1 col-md-1 text-left"> <font size=-2> <%= event.debut_heure %> </font> </div>
-              <div class="col-xs-10 col-sm-10 col-md-10 text-left"><%= event.titre %> </div>
+              <div class="col-xs-10 col-sm-10 col-md-10 text-left"> <b> <%= event.titre %> </b></div>
            </div>
 
            <div class="row">
-             <div class="col-xs-9 col-xs-offset-1 col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1"> <%= event.ville %> </div>
-             <div class="col-xs-1 col-sm-1 col-md-1"> <%= event.prix %><sup>€</sup> </div>
+             <div class="col-xs-9 col-xs-offset-1 col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1"> <font size=-1>par <%=event.facilitateur%> à <%= event.ville %></font> </div>
+             <div class="col-xs-1 col-sm-1 col-md-1"> <font size=-1><%= event.prix %><sup>€</sup> </div></font>
            </div>
+           <hr size="5" color="blue">
            </font>
       <% end %>
       <% anc_debut_jour = event.debut_jour %>

@@ -30,6 +30,7 @@ def creer_la_liste
         evt.ville = @ville
         evt.pays = @pays
         evt.reduit = @reduit
+        evt.facilitateur = @facilitateur
         evt.save
     end
 end
@@ -94,11 +95,12 @@ def remplir_les_tables
     #               Création des cours de Peter regulier
     #------------------------------------------------------------------------------
 
-    @titre = "Cours de 5 rythmes avec Peter W."
-    @description = "Cours de 5 rythmes, Corps, souffle, mouvement : La danse de l'Etre"
+    @titre = "Cours de danse des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes, Corps, souffle, mouvement : La danse de l'Etre"
     @prix = 20
     @duree = 2.hour
     @reduit = "20 € / 17 € / 14 €"
+    @facilitateur = "Peter Wilberforce"
 
     @jour = DateTime.new(2016,10,5,20,00,00)
     @liste =[]
@@ -122,11 +124,13 @@ def remplir_les_tables
     #               Création des cours de Peter ponctuel
     #------------------------------------------------------------------------------
 
-    @titre = "Cours de 5 rythmes avec Peter W. "
+    @titre = "Cours de danse des 5 rythmes"
     @description = "Atelier ponctuel"
     @prix = 20
     @duree = 2.hour
     @reduit = "20 € / 17 € / 14 €"
+    @facilitateur = "Peter Wilberforce"
+
 
     @liste = [DateTime.new(2016,9,13,20,00)]
 
@@ -138,11 +142,12 @@ def remplir_les_tables
     #               Création des stages de Peter d'une journée
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec Peter W. "
+    @titre = "Atelier de danse des 5 rythmes"
     @description = "Stage d'une journée"
     @prix = 65
     @reduit = "Tarif: 65€ une journée - 170€ trois journées - 360€ les 7"
     @duree = 5.hour + 30.minute
+    @facilitateur = "Peter Wilberforce"
 
     @liste = [DateTime.new(2016,10,2,12,00),
               DateTime.new(2016,11,6,12,00),
@@ -161,11 +166,12 @@ def remplir_les_tables
     #               Création des cours de Marc Micadanse
     #------------------------------------------------------------------------------
 
-    @titre = "Cours de 5 rythmes avec Marc S. "
+    @titre = "Cours de danse des 5 rythmes"
     @description = "Cours avec Marc dans Paris"
     @prix = 20
     @duree = 2.hour
     @reduit = "A voir suivant demande"
+    @facilitateur = "Marc Silvestre"
 
     @liste = [DateTime.new(2016,9,16,19,30),
               DateTime.new(2016,10,7,19,30),
@@ -181,11 +187,12 @@ def remplir_les_tables
     #               Création des cours de Marc Sweat your prayer Regard du Cygne
     #------------------------------------------------------------------------------
 
-    @titre = "Sweat your prayer avec Marc "
+    @titre = "Sweat your prayer"
     @description = "Sweat your prayer avec Marc "
     @prix = 20
     @duree = 2.hour
     @reduit = ""
+    @facilitateur = "Marc Silvestre"
 
     @liste = [DateTime.new(2016,9,11,19,30)]
 
@@ -196,11 +203,13 @@ def remplir_les_tables
     #               Création des stages de Marc Regard du Cygne
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec Marc long libelle "
+    @titre = "Atelier de danse des 5 rythmes"
     @description = "Stage d'une journée"
     @prix = 75
     @duree = 6.hour + 30.minute
     @reduit = "65"
+    @facilitateur = "Marc Silvestre"
+
 
     @liste = [DateTime.new(2016,9,4,12,00),
               DateTime.new(2016,11,13,12,00),
@@ -216,11 +225,12 @@ def remplir_les_tables
     #               Création des cours de Amélie
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec Amélie "
-    @description = "Cours de 5 rythmes"
+    @titre = "Cours de danse des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes"
     @prix = 18
     @reduit = "18€ & 15€ étudiants, solidaire. 150€ carte 10 cours (valable dimanches et mardis)."
     @duree = 2.hour
+    @facilitateur = "Amélie Schweiger"
 
     @liste = [DateTime.new(2016,9,18,11,00),
               DateTime.new(2016,9,25,11,00),
@@ -265,10 +275,11 @@ def remplir_les_tables
     #------------------------------------------------------------------------------
 
     @titre = "Sweat : La Double Vague avec Amélie  "
-    @description = "Cours de 5 rythmes"
+    @description = "Cours de danse des 5 rythmes"
     @prix = 18
     @reduit =  "18€ & 15€ étudiants, solidaire. 150€ carte 10 cours (valable dimanches et mardis)."
     @duree = 2.hour
+    @facilitateur = "Amélie Schweiger"
 
     @liste = [DateTime.new(2016,9,20,19,30),
               DateTime.new(2016,10,18,19,30),
@@ -283,11 +294,12 @@ def remplir_les_tables
     #               Création des stage d'une journée avec Amélie
     #------------------------------------------------------------------------------
 
-    @titre = "Lab impro au fil des 5 Rythmes Amélie  "
-    @description = "Cours de 5 rythmes"
+    @titre = "Lab impro au fil des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes"
     @prix = 75
     @reduit = "60€ étudiants et  solidaire. 300€ le cycle complet."
     @duree = 5.hour
+    @facilitateur = "Amélie Schweiger"
 
     @liste = [DateTime.new(2016,10,1,14,30),
               DateTime.new(2016,12,17,14,30),
@@ -303,11 +315,12 @@ def remplir_les_tables
     #               Création des cours de Lise
     #------------------------------------------------------------------------------
 
-    @titre = "Cours de 5 rythmes avec Lise"
-    @description = "Cours de 5 rythmes avec Lise"
+    @titre = "Cours de danse des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes avec Lise"
     @prix = 20
     @duree = 2.hour
     @reduit = "Cartes d'abonnement au trimestre et à l'année dès septembre"
+    @facilitateur = "Lise Merlin"
 
     @jour = DateTime.new(2016,9,7,19,30)
     @liste =[]
@@ -333,11 +346,12 @@ def remplir_les_tables
     #               Création des cours d'Omar
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec Omar "
-    @description = "Cours de 5 rythmes"
+    @titre = "Stage de danse des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes"
     @prix = 20
     @reduit = "Oui, à demander sur place "
     @duree = 2.hour
+    @facilitateur = "Omar Omzeray"
 
     @liste = [DateTime.new(2016,9,2,19,30)]
 
@@ -349,11 +363,12 @@ def remplir_les_tables
     #               Création des cours de Véronique May B
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec  Véronique"
-    @description = "Cours de 5 rythmes"
+    @titre = "Stage de danse des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes"
     @prix = 20
     @reduit =
     @duree = 2.hour + 30.minute
+    @facilitateur = "Véronique Champalou"
 
     @liste = [DateTime.new(2016,9,6,19,30),
               DateTime.new(2016,10,11,19,30),
@@ -369,11 +384,13 @@ def remplir_les_tables
     #               Création des cours de Véronique Noces
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec  Véronique"
-    @description = "Cours de 5 rythmes"
+    @titre = "Stage de danse des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes"
     @prix = 20
     @reduit =
     @duree = 2.hour
+    @facilitateur = "Véronique Champalou"
+
 
     @liste = [DateTime.new(2016,9,20,16,00),
               DateTime.new(2016,11,3,15,00)
@@ -390,14 +407,15 @@ def remplir_les_tables
     creer_la_liste
 
     #------------------------------------------------------------------------------
-    #               Création des cours de ???
+    #               Création des cours de Garance
     #------------------------------------------------------------------------------
 
-    @titre = "Stage de 5 rythmes avec Garance"
-    @description = "Cours de 5 rythmes"
+    @titre = "Atelier de Open floor"
+    @description = "Pas de description"
     @prix = 20
     @reduit = "15 (étudiants, RSA...)"
     @duree = 2.hour
+    @facilitateur = "Garance Monzies"
 
     @liste = [DateTime.new(2016,9,25,11,00),
               DateTime.new(2016,10,23,11,00),
@@ -412,8 +430,8 @@ def remplir_les_tables
     # #               Création des cours de ???
     # # ------------------------------------------------------------------------------
 
-    # @titre = "Stage de 5 rythmes avec  "
-    # @description = "Cours de 5 rythmes"
+    # @titre = "Stage de danse des 5 rythmes avec  "
+    # @description = "Cours de danse des 5 rythmes"
     # @prix =
     # @reduit =
     # @duree =

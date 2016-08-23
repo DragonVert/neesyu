@@ -1,18 +1,36 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
 
-<h1 class="text-center"> Détail de l'événément </h1>
-<h2 class="text-center"> <%= @event.titre %> </h2>
-<h3 class="text-center"> Prix : <%= @event.prix || "Gratuit" %></h3>
-<h3 class="text-center"> Début: <%= @event.debut %></h3>
-<h3 class="text-center"> Fin: <%= @event.fin %></h3>
+<h4 class="text-center"> Détail de l'événément </h4>
+<div class="container">
+    <row>
+        <div class="col-md-8 col-md-offset-2 text-center"> <h3> <%= @event.titre %> </h3> </div>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> Description : <%= @event.description %> </div> <br>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> animé par <b> <%= @event.facilitateur %> </b> </div> <br>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> Horaire : <%= @event.debut_jour%> à <%= @event.debut_heure %> </div> <br>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> Lieu : <%= @event.lieu %>,<br> <%=@event.adresse %> <br> <%= @event.ville %> </div> <br>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> Tarif réduit : <%= @event.reduit%> </div> <br>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> Transport : <%= @event.transport%> </div> <br>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> Contacter : <%= @event.contact%> </div> <br>
+    </row>
 
-<h3 class="text-center"> <%= @event.description %></h3>
-<h3 class="text-center"> <%= @event.lieu %></h3>
-
-
+</div>
 
 <p class= "text-center">
-<%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
-<%= link_to 'Lister', events_path, class: "btn btn-primary" %>
+<!-- <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %> -->
+<%= link_to 'Lister les événements', events_path, class: "btn btn-primary" %>
 </p>

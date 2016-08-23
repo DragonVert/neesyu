@@ -1,62 +1,21 @@
 <h1 class= "text-center">Bienvenue sur Neesyu</h1>
-<p class="text-center">L'agenda parisien complet pour danser et s'épanouir.
-<br>
+<div class="container">
+    <row>
+        <div class="col-md-8 col-md-offset-2" >
+              <p class="text-center">L'agenda parisien complet pour danser et s'épanouir.
+              Vous trouverez ici tous les activités sur Paris des danses de 5 Rythmes, Mouvment Medecine et Openfloor ... pour commencer.
+              </p>
+
+              <p class="text-center">
+              Ceci est un site en cours de construction donc il y a des améliorations à réaliser, et nous y travaillons ... mais peut-être qu'il peut déjà vous rendre service. En résumé, si vous en êtes content, remerciez-le et s'il vous contrarie, soyez indulgent. Merci ... et que les dieux de la danse vous transportent.
+              </p>
+        </div>
+    </row>
+</div>
+
+
+<p class="text-center">
 <%= link_to "Liste des événements", events_path, class: "btn btn-primary" %>
 </p>
 
-<!-- Stack the columns on mobile by making one full-width and the other half-width -->
-<%= link_to events_path do %>
-<div class="row" >
-  <div class="col-xs-12 col-md-8">col-xs-12 col-md-8</div>
-  <div class="col-xs-6 col-md-4">col-xs-6 col-md-4</div>
-  <div class="col-xs-6 col-md-4">col-xs-6 col-md-4</div>
-  <div class="col-xs-6 col-md-4">col-xs-6 col-md-4</div>
-  <div class="col-xs-6 col-md-4">col-xs-6 col-md-4</div>
-  <div class="col-xs-6 col-md-4">col-xs-6 col-md-4</div>
-</div>
-<% end %>
 
-
-<div class="row">
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-  <div class="col-md-1">col-md-1</div>
-</div>
-<div class="row">
-  <div class="col-md-8">col-md-8</div>
-  <div class="col-md-4">col-md-4</div>
-</div>
-<div class="row">
-  <div class="col-md-4">col-md-4</div>
-  <div class="col-md-4">col-md-4</div>
-  <div class="col-md-4">col-md-4</div>
-</div>
-<div class="row">
-  <div class="col-md-6">col-md-6</div>
-  <div class="col-md-6">col-md-6</div>
-</div>
-
-<
-
-        <div class ="row">
-            <div class="col-md-12 text-center"> Date du jour </div>
-        </div>
-
-      <div class="row">
-          <div class="col-md-1"> Heure </div>
-          <div class="col-md-1"> Titre </div>
-       </div>
-
-       <div class="row">
-         <div class="col-md-2"> Ville  </div>
-         <div class="col-md-1 col-md-offset-5"> prix </div>
-       </div>
