@@ -1,34 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nom:</strong>
-  <%= @profil.nom %>
+<h3 class="text-center"> Profil </h3>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p>
+              <em>Pseudo : </em>
+              <strong> <%= @profil.pseudo %> </strong>
+            </p>
+
+            <p>
+              <em>Nom : </em>
+              <strong> <%= @profil.nom %> </strong>
+            </p>
+
+            <p>
+              <em>Prenom : </em>
+              <strong> <%= @profil.prenom %> </strong>
+            </p>
+
+            <p>
+              <em>Activite : </em>
+              <strong> <%= @profil.activite %> </strong>
+            </p>
+
+            <p>
+              <em>Detail : </em>
+              <strong> <%= @profil.detail %> </strong>
+            </p>
+
+            <p>
+              <em>Site : </em>
+              <strong> <%= @profil.site %> </strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<p class="text-center">
+<%= link_to "Liste des événements", events_path, class: "btn btn-primary" %>
 </p>
 
-<p>
-  <strong>Prenom:</strong>
-  <%= @profil.prenom %>
-</p>
 
-<p>
-  <strong>Pseudo:</strong>
-  <%= @profil.pseudo %>
-</p>
-
-<p>
-  <strong>Detail:</strong>
-  <%= @profil.detail %>
-</p>
-
-<p>
-  <strong>Site:</strong>
-  <%= @profil.site %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profil.user %>
-</p>
-
-<%= link_to 'Edit', edit_profil_path(@profil) %> |
-<%= link_to 'Back', profils_path %>

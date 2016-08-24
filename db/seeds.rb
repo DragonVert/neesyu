@@ -50,14 +50,14 @@ end
 @user_veronique = User.create!( email: "veronique@neesyu.com", password: "password")
 @user_garance = User.create!( email: "garance@neesyu.com", password: "password")
 
-@profil_peter = Profil.create!(nom: "Wilberforce", prenom:"Peter", pseudo: "Peter W.", user: @user_peter)
-@profil_marc = Profil.create!(nom: "Sylvestre", prenom: "Marc", pseudo: "Marc S.", user: @user_marc)
-@profil_amelie = Profil.create!(nom: "Schweiger", prenom: "Amélie", pseudo:"Amélie S.", user:@user_amelie)
-@profil_lise = Profil.create!(nom: "Merlin", prenom: "Lise", pseudo:"Lise M.", user:@user_lise)
-@profil_omar = Profil.create!(nom: "Omerzay", prenom:"Omar", pseudo: "Omar O.", user: @user_omar)
-@profil_carine = Profil.create!(nom: "Bourny", prenom: "Carine", pseudo: "Carine B.", user: @user_omar)
-@profil_veronique = Profil.create!(nom: "Champalou", prenom: "Véronique", pseudo: "Véronique C.", user: @user_veronique)
-@profil_garance = Profil.create!(nom: "Monzies", prenom: "Garance", pseudo: "Garance M.", user: @user_garance)
+@profil_peter = Profil.create!(nom: "Wilberforce", prenom:"Peter", pseudo: "Peter W.", activite: "Prof 5 rythmes", user: @user_peter)
+@profil_marc = Profil.create!(nom: "Sylvestre", prenom: "Marc", pseudo: "Marc S.", activite: "Prof 5 rythmes",user: @user_marc)
+@profil_amelie = Profil.create!(nom: "Schweiger", prenom: "Amélie", pseudo:"Amélie S.", activite: "Prof 5 rythmes",user:@user_amelie)
+@profil_lise = Profil.create!(nom: "Merlin", prenom: "Lise", pseudo:"Lise M.", activite: "Prof 5 rythmes",user:@user_lise)
+@profil_omar = Profil.create!(nom: "Omerzay", prenom:"Omar", pseudo: "Omar O.", activite: "Prof 5 rythmes",user: @user_omar)
+@profil_carine = Profil.create!(nom: "Bourny", prenom: "Carine", pseudo: "Carine B.", activite: "Prof 5 rythmes",user: @user_omar)
+@profil_veronique = Profil.create!(nom: "Champalou", prenom: "Véronique", pseudo: "Véronique C.",activite: "Prof Movement Medecine", user: @user_veronique)
+@profil_garance = Profil.create!(nom: "Monzies", prenom: "Garance", pseudo: "Garance M.", activite: "Prof Openfloor", user: @user_garance)
 
 
 # Parametrer la salle
