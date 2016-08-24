@@ -33,6 +33,7 @@ def creer_la_liste
         evt.pays = @pays
         evt.reduit = @reduit
         evt.user_id = @user.id
+        evt.transport = @transport
         evt.save
     end
 end
@@ -50,20 +51,44 @@ end
 @user_veronique = User.create!( email: "veronique@neesyu.com", password: "password")
 @user_garance = User.create!( email: "garance@neesyu.com", password: "password")
 
-@profil_peter = Profil.create!(nom: "Wilberforce", prenom:"Peter", pseudo: "Peter W.", activite: "Prof 5 rythmes", user: @user_peter)
-@profil_marc = Profil.create!(nom: "Sylvestre", prenom: "Marc", pseudo: "Marc S.", activite: "Prof 5 rythmes",user: @user_marc)
-@profil_amelie = Profil.create!(nom: "Schweiger", prenom: "Amélie", pseudo:"Amélie S.", activite: "Prof 5 rythmes",user:@user_amelie)
-@profil_lise = Profil.create!(nom: "Merlin", prenom: "Lise", pseudo:"Lise M.", activite: "Prof 5 rythmes",user:@user_lise)
-@profil_omar = Profil.create!(nom: "Omerzay", prenom:"Omar", pseudo: "Omar O.", activite: "Prof 5 rythmes",user: @user_omar)
-@profil_carine = Profil.create!(nom: "Bourny", prenom: "Carine", pseudo: "Carine B.", activite: "Prof 5 rythmes",user: @user_omar)
-@profil_veronique = Profil.create!(nom: "Champalou", prenom: "Véronique", pseudo: "Véronique C.",activite: "Prof Movement Medecine", user: @user_veronique)
-@profil_garance = Profil.create!(nom: "Monzies", prenom: "Garance", pseudo: "Garance M.", activite: "Prof Openfloor", user: @user_garance)
+@profil_peter = Profil.create!(nom: "Wilberforce", prenom:"Peter", pseudo: "Peter W.",
+                        activite: "Prof 5 rythmes", user: @user_peter,detail: "Non renseigné",
+                        site: "http://www.bodyvoiceandbeing.com/body-voice-and-being")
+
+@profil_marc = Profil.create!(nom: "Sylvestre", prenom: "Marc", pseudo: "Marc S.",
+                        activite: "Prof 5 rythmes",user: @user_marc,detail: "Non renseigné",
+                        site: "http://www.marcsilvestre.com/")
+
+@profil_amelie = Profil.create!(nom: "Schweiger", prenom: "Amélie", pseudo:"Amélie S.",
+                        activite: "Prof 5 rythmes",user:@user_amelie,detail: "Non renseigné",
+                        site: "http://www.lesviesdansent.fr/")
+
+@profil_lise = Profil.create!(nom: "Merlin", prenom: "Lise", pseudo:"Lise M.",
+                        activite: "Prof 5 rythmes",user:@user_lise,detail: "Non renseigné",
+                        site: "http://merlinlise.wixsite.com/dansenative/lise-merlin")
+
+@profil_omar = Profil.create!(nom: "Omerzay", prenom:"Omar", pseudo: "Omar O.",
+                        activite: "Prof 5 rythmes",user: @user_omar,detail: "Non renseigné",
+                        site: "https://omar5rythmes.wordpress.com/")
+
+@profil_carine = Profil.create!(nom: "Bourny", prenom: "Carine", pseudo: "Carine B.",
+                        activite: "Prof 5 rythmes",user: @user_omar,detail: "Non renseigné",
+                        site: "http://www.coeur-danse-presence.com/")
+
+@profil_veronique = Profil.create!(nom: "Champalou", prenom: "Véronique", pseudo: "Véronique C.",
+                        activite: "Prof Movement Medecine", user: @user_veronique,detail: "Non renseigné",
+                        site: "http://www.inmotioneurope.com/In_Motion_Europe/Accueil.html")
+
+@profil_garance = Profil.create!(nom: "Monzies", prenom: "Garance", pseudo: "Garance M.",
+                        activite: "Prof Openfloor", user: @user_garance,detail: "Non renseigné",
+                        site: "http://www.danseinspiree.com/")
 
 
 # Parametrer la salle
 def salle_micadanse_may_b
     @lieu = "Micadanse/May B"
     @adresse = "15 rue Geoffroy l'Asnier"
+    @transport = "Metro Saint-Paul et Pont Marie"
     @cp = "75004"
     @ville = "Paris 4e"
     @pays = "France"
@@ -72,6 +97,7 @@ end
 def salle_micadanse_noces
     @lieu = "Micadanse/Noces"
     @adresse = "20 rue Geoffroy l'Asnier"
+    @transport = "Metro Saint-Paul et Pont Marie"
     @cp = "75004"
     @ville = "Paris 4e"
     @pays = "France"
@@ -80,6 +106,7 @@ end
 def salle_la_guillontine
     @lieu = "La Guillotine"
     @adresse ="24 rue Robespierre"
+    @transport = "Robespierre - ligne 9 (à 7 min de Nation)"
     @cp = "93100"
     @ville ="Montreuil"
     @pays = "France"
@@ -88,6 +115,7 @@ end
 def salle_regard_du_cygne
     @lieu = "Au regard du Cygne"
     @adresse = "210 rue de Belleville"
+    @transport = "Metro Telegraphe, Jourdain, Place des fêtes"
     @cp = "75020"
     @ville = "Paris 20e"
     @pays = "France"
@@ -97,6 +125,7 @@ end
 def salle_one_step
     @lieu = "One step"
     @adresse = "18-20 rue du Faubourg du Temple"
+    @transport = "Métro: République"
     @cp = "75011"
     @ville = "Paris 11e"
     @pays = "France"
