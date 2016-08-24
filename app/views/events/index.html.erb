@@ -37,6 +37,8 @@
 
 <br>
 
-<p class="text-center">
-<%= link_to 'Ajouter un événement', new_event_path , class: "btn btn-primary"%>
-</p>
+<%  if user_signed_in? %>
+    <p class="text-center">
+    <%= link_to 'Ajouter un événement 2', new_event_path , class: "btn btn-primary"%>
+    </p>
+<% end %>
