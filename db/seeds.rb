@@ -405,7 +405,7 @@ def remplir_les_tables
     @description = "Cours de danse des 5 rythmes"
     @prix = 20
     @reduit = "Oui, à demander sur place "
-    @duree = 2.hour + 45.minutte
+    @duree = 2.hour + 45.minute
 
 
     # Vendredi 02/09 de 19:15 à 22:00 May B
