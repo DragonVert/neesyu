@@ -3,33 +3,31 @@
 <h4 class="text-center"> <em> Liste des événements </em></h4>
 
 <div class="container">
-    <% @events = @events.sort_by { |e| e.debut} %>
-    <% anc_debut_jour = nil %>
 
-    <% @events.each do |event| %>
-      <% if event.debut_jour != anc_debut_jour %>
-        <div class ="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">  <%= event.debut_jour %> </div>
-        </div>
-        <hr size="1" color="orange">
-      <% end %>
+<!--    Si c'est un tableau on le trie -->
+    <%  if @events.try(:sort) %>
 
-      <%= link_to event do %>
-          <font color="#9A3619">
-          <div class="row">
-              <div class="col-xs-1 col-sm-1 col-md-1 text-left"> <font size=-2> <%= event.debut_heure %> </font> </div>
-              <div class="col-xs-10 col-sm-10 col-md-10 text-left"> <b> <%= event.titre %> </b></div>
-           </div>
+        <% @events = @events.sort_by { |e| e.debut} %>
 
-           <div class="row">
-             <div class="col-xs-9 col-xs-offset-1 col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1"> <font size=-1>par <%=event.user.profil.pseudo %> à <%= event.ville %></font> </div>
-             <div class="col-xs-1 col-sm-1 col-md-1"> <font size=-1><%= event.prix %><sup>€</sup> </div></font>
-           </div>
-           <hr size="5" color="blue">
-           </font>
-      <% end %>
-      <% anc_debut_jour = event.debut_jour %>
+        <% anc_debut_jour = nil %>
+
+        <% @events.each do |event| %>
+        <!-- Regrouper par dates  -->
+              <% if event.debut_jour != anc_debut_jour %>
+                <div class ="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">  <%= event.debut_jour %> </div>
+                </div>
+                <hr size="1" color="orange">
+              <% end %>
+
+                <%= render "ligne", :event => event %>
+              <% anc_debut_jour = event.debut_jour %>
+            <% end %>
+    <% else %>
+    <!-- La liste se reduit à un seul evenement -->
+        <%= render "ligne", :event => @events %>
     <% end %>
+
 </div>
 </div>
 </div>
