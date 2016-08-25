@@ -32,7 +32,35 @@
 
 </div>
 
+
+<!-- Ajouter au calendrier Google transformer l heure en Greenwich -2h été -->
+<% @debut = @event.debut - 2.hour %>
+<% @fin = @event.fin - 2.hour %>
+
+<% @text = @event.titre.gsub(' ','+') %>
+<% @dates1 = @debut.to_s[0..3] + @debut.to_s[5..6] + @debut.to_s[8..9]  %>
+<% @dates2 =  "T" + @debut.to_s[11..12] + @debut.to_s[14..15] + @debut.to_s[17..18] + "Z/" %>
+<% @dates3 = @fin.to_s[0..3] + @fin.to_s[5..6] + @fin.to_s[8..9] %>
+<% @dates4 = "T" + @fin.to_s[11..12] + @fin.to_s[14..15] + @fin.to_s[17..18] + "Z/" %>
+<% @dates = @dates1 + @dates2 + @dates3 + @dates4 %>
+<% @details = @event.description.gsub(' ','+') %>
+<% @location = @event.cp.gsub(' ','+') + "," + @event.ville.gsub(' ','+') %>
+
+<!-- Ajouter au calendrier Google-->
+<% @text =  @text  %>
+<% @dates1 = @debut.to_s[0..3] + @debut.to_s[5..6] + @debut.to_s[8..9]  %>
+<% @dates2 =  "T" + @debut.to_s[11..12] + @debut.to_s[14..15] + @debut.to_s[17..18] + "Z/" %>
+<% @dates3 = @fin.to_s[0..3] + @fin.to_s[5..6] + @fin.to_s[8..9] %>
+<% @dates4 = "T" + @fin.to_s[11..12] + @fin.to_s[14..15] + @fin.to_s[17..18] + "Z" %>
+<% @dates = @dates1 + @dates2 + @dates3 + @dates4 %>
+<% @details = @event.description.gsub(' ','+') %>
+<% @location = @event.cp.gsub(' ','+') + "," + @event.ville.gsub(' ','+') %>
+
+<% @lien = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + @text + "&dates=" + @dates + "&details=" + @details +"&location=" + @location + "&sf=true&output=xml#eventpage_6" %>
+
 <p class= "text-center">
-<!-- <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %> -->
-<%= link_to 'Lister les événements', events_path, class: "btn btn-primary" %>
+    <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
+    <%= link_to "Enregistrer dans Google Calendar", @lien, class: "btn btn-primary" %>
+    <%= link_to 'Tous les événements', events_path, class: "btn btn-primary" %>
 </p>
+

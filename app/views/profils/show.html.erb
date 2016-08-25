@@ -41,7 +41,8 @@
 
 
 <p class="text-center">
-<%= link_to "Liste des événements", events_path, class: "btn btn-primary" %>
+<%= link_to "Tous les événements", events_path, class: "btn btn-primary" %>
+<%= link_to "Ses prochains les événements", events_path(user: @profil.user), class: "btn btn-primary" %>
 </p>
 
 

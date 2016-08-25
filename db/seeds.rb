@@ -34,7 +34,11 @@ def creer_la_liste
         evt.reduit = @reduit
         evt.user_id = @user.id
         evt.transport = @transport
-        evt.save
+        if evt.save
+            puts   "Evt cree titre #{evt.transport} date #{evt.debut} user #{evt.user.profil.pseudo}"
+        else
+            puts   "Evt pb !!! cree titre #{evt.transport} date #{evt.debut} user #{evt.user.profil.pseudo}"
+        end
     end
 end
 
@@ -394,58 +398,6 @@ def remplir_les_tables
 
 
 
-    #------------------------------------------------------------------------------
-    #               Création des cours d'Omar
-    #------------------------------------------------------------------------------
-
-    @user = @user_omar
-
-
-    @titre = "Stage de danse des 5 rythmes"
-    @description = "Cours de danse des 5 rythmes"
-    @prix = 20
-    @reduit = "Oui, à demander sur place "
-    @duree = 2.hour + 45.minute
-
-
-    # Vendredi 02/09 de 19:15 à 22:00 May B
-    salle_micadanse_may_b
-    @dure = 2.hour + 45.minute
-    @liste = [DateTime.new(2016,9,2,19,15)]
-    creer_la_liste
-
-    # >Samedi 10/09 de 16:15 à 19:00 Noces
-    salle_micadanse_noces
-    @dure = 2.hour + 45.minute
-    @liste = [DateTime.new(2016,9,10,16,15)]
-
-    # > Samedi 08/10 de 17:15 à 20:00 May B
-    salle_micadanse_may_b
-    @dure = 2.hour + 45.minute
-    @liste = [DateTime.new(2016,10,8,17,15)]
-
-    # > Samedi 30/10 de 17:15 à 19:00 May B
-    salle_micadanse_may_b
-    @dure = 1.hour + 45.minute
-    @liste = [DateTime.new(2016,10,30,17,15)]
-
-    # Exception Vendredis 11/11 à One step 19h>21h30
-    salle_one_step
-    @dure = 2.hour + 30.minute
-    @liste = [DateTime.new(2016,11,11,19,00)]
-
-    # > samedi 12/11 de 16:15 à 19:00 May B
-    @salle_micadanse_may_b
-    @dure = 2.hour + 45.minute
-    @liste = [DateTime.new(2016,11,12,19,00)]
-
-    # > Dimanche 20/11 de 19:15 à 21:00 May B
-    @salle_micadanse_may_b
-    @dure = 2.hour + 45.minute
-    @liste = [DateTime.new(2016,11,20,19,15)]
-
-    # > Samedi 10/12 de 18:15 à 21:00 May B
-
 
     #------------------------------------------------------------------------------
     #               Création des cours de Véronique May B
@@ -456,7 +408,7 @@ def remplir_les_tables
     @titre = "Stage de danse des 5 rythmes"
     @description = "Cours de danse des 5 rythmes"
     @prix = 20
-    @reduit =
+    @reduit = ""
     @duree = 2.hour + 30.minute
 
     @liste = [DateTime.new(2016,9,6,19,30),
@@ -476,7 +428,7 @@ def remplir_les_tables
     @titre = "Stage de danse des 5 rythmes"
     @description = "Cours de danse des 5 rythmes"
     @prix = 20
-    @reduit =
+    @reduit =""
     @duree = 2.hour
 
 
@@ -514,6 +466,69 @@ def remplir_les_tables
 
     salle_alter
     creer_la_liste
+
+    #------------------------------------------------------------------------------
+    #               Création des cours d'Omar
+    #------------------------------------------------------------------------------
+
+    @user = @user_omar
+
+
+    @titre = "Stage de danse des 5 rythmes"
+    @description = "Cours de danse des 5 rythmes"
+    @prix = 20
+    @reduit = "Oui, à demander sur place "
+    @duree = 2.hour + 45.minute
+
+
+    # Vendredi 02/09 de 19:15 à 22:00 May B
+    salle_micadanse_may_b
+    @duree = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,9,2,19,15)]
+    creer_la_liste
+
+    # >Samedi 10/09 de 16:15 à 19:00 Noces
+    salle_micadanse_noces
+    @duree = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,9,10,16,15)]
+    creer_la_liste
+
+    # > Samedi 08/10 de 17:15 à 20:00 May B
+    salle_micadanse_may_b
+    @duree = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,10,8,17,15)]
+    creer_la_liste
+
+    # > Samedi 30/10 de 17:15 à 19:00 May B
+    salle_micadanse_may_b
+    @duree = 1.hour + 45.minute
+    @liste = [DateTime.new(2016,10,30,17,15)]
+    creer_la_liste
+
+    # Exception Vendredis 11/11 à One step 19h>21h30
+    salle_one_step
+    @duree = 2.hour + 30.minute
+    @liste = [DateTime.new(2016,11,11,19,00)]
+    creer_la_liste
+
+    # > samedi 12/11 de 16:15 à 19:00 May B
+    @salle_micadanse_may_b
+    @duree = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,11,12,19,00)]
+    creer_la_liste
+
+    # > Dimanche 20/11 de 19:15 à 21:00 May B
+    @salle_micadanse_may_b
+    @duree = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,11,20,19,15)]
+    creer_la_liste
+
+    # > Samedi 10/12 de 18:15 à 21:00 May B
+    @salle_micadanse_may_b
+    @duree = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,12,10,18,15)]
+    creer_la_liste
+
 
     # # ------------------------------------------------------------------------------
     # #               Création des cours de ???
