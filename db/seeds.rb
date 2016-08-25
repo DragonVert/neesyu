@@ -405,13 +405,47 @@ def remplir_les_tables
     @description = "Cours de danse des 5 rythmes"
     @prix = 20
     @reduit = "Oui, à demander sur place "
-    @duree = 2.hour
-
-    @liste = [DateTime.new(2016,9,2,19,30)]
+    @duree = 2.hour + 45.minutte
 
 
+    # Vendredi 02/09 de 19:15 à 22:00 May B
     salle_micadanse_may_b
+    @dure = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,9,2,19,15)]
     creer_la_liste
+
+    # >Samedi 10/09 de 16:15 à 19:00 Noces
+    salle_micadanse_noces
+    @dure = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,9,10,16,15)]
+
+    # > Samedi 08/10 de 17:15 à 20:00 May B
+    salle_micadanse_may_b
+    @dure = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,10,8,17,15)]
+
+    # > Samedi 30/10 de 17:15 à 19:00 May B
+    salle_micadanse_may_b
+    @dure = 1.hour + 45.minute
+    @liste = [DateTime.new(2016,10,30,17,15)]
+
+    # Exception Vendredis 11/11 à One step 19h>21h30
+    salle_one_step
+    @dure = 2.hour + 30.minute
+    @liste = [DateTime.new(2016,11,11,19,00)]
+
+    # > samedi 12/11 de 16:15 à 19:00 May B
+    @salle_micadanse_may_b
+    @dure = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,11,12,19,00)]
+
+    # > Dimanche 20/11 de 19:15 à 21:00 May B
+    @salle_micadanse_may_b
+    @dure = 2.hour + 45.minute
+    @liste = [DateTime.new(2016,11,20,19,15)]
+
+    # > Samedi 10/12 de 18:15 à 21:00 May B
+
 
     #------------------------------------------------------------------------------
     #               Création des cours de Véronique May B
