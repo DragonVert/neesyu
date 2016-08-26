@@ -7,27 +7,39 @@
         <div class="col-md-8 col-md-offset-2 text-center"> <h3> <%= @event.titre %> </h3> </div>
     </row>
     <row>
-        <div class="col-md-8 col-md-offset-2 "> Description : <%= @event.description %> </div> <br>
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-info" aria-hidden="true"></i> &nbsp
+                            <%= @event.description %> </div> <br>
     </row>
     <row>
-        <div class="col-md-8 col-md-offset-2 "> animé par <b>
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-user" aria-hidden="true"></i> &nbsp
+
                       <%= link_to "#{@event.user.profil.prenom} #{@event.user.profil.nom}" , profil_path(@event.user.profil) %>
                       </b> </div> <br>
     </row>
     <row>
-        <div class="col-md-8 col-md-offset-2 "> Horaire : <%= @event.debut_jour%> à <%= @event.debut_heure %> </div> <br>
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp
+                                                       <%= @event.debut_jour%> à <%= @event.debut_heure %> </div> <br>
     </row>
     <row>
-        <div class="col-md-8 col-md-offset-2 "> Lieu : <%= @event.lieu %>,<br> <%=@event.adresse %> <br> <%= @event.ville %> </div> <br>
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp
+                            <%= @event.lieu %>,<br> &nbsp &nbsp &nbsp <%=@event.adresse %> <br> &nbsp &nbsp &nbsp <%= @event.ville %> </div> <br>
     </row>
     <row>
-        <div class="col-md-8 col-md-offset-2 "> Tarif réduit : <%= @event.reduit%> </div> <br>
+        <div class="col-md-8 col-md-offset-2 ">  <i class="fa fa-eur" aria-hidden="true"></i> &nbsp
+                                <%= @event.prix%> </div> <br>
     </row>
     <row>
-        <div class="col-md-8 col-md-offset-2 "> Transport : <%= @event.transport%> </div> <br>
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp
+ <%= @event.reduit%> </div> <br>
     </row>
     <row>
-        <div class="col-md-8 col-md-offset-2 "> Contacter : <%= @event.contact%> </div> <br>
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-subway" aria-hidden="true"></i> &nbsp
+                                    <%= @event.transport%> </div> <br>
+    </row>
+    <row>
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp
+
+                                        <%= @event.contact%> </div> <br>
     </row>
 
 </div>
