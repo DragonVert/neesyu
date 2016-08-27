@@ -26,6 +26,7 @@ class ProfilsController < ApplicationController
   def create
     @profil = Profil.new(profil_params)
     @profil.user = current_user
+    @profil.set_search
 
     respond_to do |format|
       if @profil.save
@@ -41,6 +42,7 @@ class ProfilsController < ApplicationController
   # PATCH/PUT /profils/1
   # PATCH/PUT /profils/1.json
   def update
+    @profil.set_search
     if (current_user == @profil.user)
         respond_to do |format|
           if @profil.update(profil_params)
@@ -77,4 +79,6 @@ class ProfilsController < ApplicationController
     def profil_params
       params.require(:profil).permit(:nom, :prenom, :pseudo, :detail, :site, :user_id)
     end
+
+
 end

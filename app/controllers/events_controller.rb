@@ -38,6 +38,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
+    @event.set_search
 
     respond_to do |format|
       if @event.save
@@ -54,6 +55,8 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     if current_user == @event.user
+        @event.set_search
+        binding.pry
         respond_to do |format|
           if @event.update(event_params)
             format.html { redirect_to @event, notice: "L'événement a été modifié." }

@@ -4,9 +4,9 @@ class PagesController < ApplicationController
   def search
 
         if params[:mots]
-            @ligne = params[:mots]
+            @mot = params[:mots].downcase
 
-            @events = search_string(@ligne)
+            @events = search_string(@mot)
 
             @events.sort_by! { |e| e.debut }
 
@@ -24,15 +24,7 @@ class PagesController < ApplicationController
         # Liste des evenements
         @events = Event.all
 
-        # recherche par nom
-        @events_nom = @events.select{ |e| e.user.profil.nom.include?(mot)}
-
-        # recherche par prenom
-        @events_prenom = @events.select{ |e| e.user.profil.prenom.include?(mot)}
-
-        # recherche par titre
-        @events_titre = @events.select{ |e| e.titre.include?(mot)}
-
-        @events = @events_titre + @events_nom + @events_prenom
+        # recherche des evenements contenant le mot
+        @events = @events.select{ |e| e.search_text.include?(mot)}
   end
 end

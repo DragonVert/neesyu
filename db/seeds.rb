@@ -34,6 +34,8 @@ def creer_la_liste
         evt.reduit = @reduit
         evt.user_id = @user.id
         evt.transport = @transport
+        evt.set_search
+
         if evt.save
             puts   "Evt cree titre #{evt.transport} date #{evt.debut} user #{evt.user.profil.pseudo}"
         else
@@ -87,8 +89,25 @@ end
                         activite: "Prof Openfloor", user: @user_garance,detail: "Non renseigné",
                         site: "http://www.danseinspiree.com/")
 
+@profil_peter.set_search
+@profil_marc.set_search
+@profil_amelie.set_search
+@profil_lise.set_search
+@profil_omar.set_search
+@profil_carine.set_search
+@profil_veronique.set_search
+@profil_garance.set_search
 
-# Parametrer la salle
+@profil_peter.save
+@profil_marc.save
+@profil_amelie.save
+@profil_lise.save
+@profil_omar.save
+@profil_carine.save
+@profil_veronique.save
+@profil_garance.save
+
+
 def salle_micadanse_may_b
     @lieu = "Micadanse/May B"
     @adresse = "15 rue Geoffroy l'Asnier"
