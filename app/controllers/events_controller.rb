@@ -5,11 +5,19 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     if params[:user]
-        @events = Event.where(user: params[:user])
+        @events = Event.where(user: params[:user]).order(debut: :asc)
+    elsif params[:debut]
+        @annee = params[:debut][0..3].to_i
+        @mois = params[:debut][5..6].to_i
+        @jour = params[:debut][7..8].to_i
+        @debut = DateTime.new(@annee, @mois, @jour)
+        @events = Event.all.order(debut: :asc)
+        @events = @events.select{ |e| e.debut > @debut}
     else
-       @events = Event.all
+        @events = Event.all.order(debut: :asc)
     end
   end
+
 
   # GET /events/1
   # GET /events/1.json
@@ -45,14 +53,19 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: "L'événement a été modifié." }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if current_user == @event.user
+        respond_to do |format|
+          if @event.update(event_params)
+            format.html { redirect_to @event, notice: "L'événement a été modifié." }
+            format.json { render :show, status: :ok, location: @event }
+          else
+            format.html { render :edit }
+            format.json { render json: @event.errors, status: :unprocessable_entity }
+          end
+        end
+    else
+        flash[:alert] = "Vous ne pouvez pas modifier l'événement"
+        redirect_to root_path
     end
   end
 
@@ -77,6 +90,6 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:titre, :description, :prix, :debut, :fin,
                         :lieu, :adresse, :cp, :ville, :pays, :reduit, :contact,
-                        :transport, :facilitateur)
+                        :transport)
     end
 end

@@ -2,30 +2,23 @@
 <% @titre_page = 'Liste des evenements' %>
 <h4 class="text-center"> <em> Liste des événements </em></h4>
 
+
+
 <div class="container">
 
-<!--    Si c'est un tableau on le trie -->
-    <%  if @events.try(:sort) %>
+<% anc_debut_jour = nil %>
 
-        <% @events = @events.sort_by { |e| e.debut} %>
+<% @events.each do |event| %>
+<!-- Regrouper par dates  -->
+      <% if event.debut_jour != anc_debut_jour %>
+        <div class ="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">  <%= event.debut_jour %> </div>
+        </div>
+        <hr size="1" color="orange">
+      <% end %>
 
-        <% anc_debut_jour = nil %>
-
-        <% @events.each do |event| %>
-        <!-- Regrouper par dates  -->
-              <% if event.debut_jour != anc_debut_jour %>
-                <div class ="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">  <%= event.debut_jour %> </div>
-                </div>
-                <hr size="1" color="orange">
-              <% end %>
-
-                <%= render "ligne", :event => event %>
-              <% anc_debut_jour = event.debut_jour %>
-            <% end %>
-    <% else %>
-    <!-- La liste se reduit à un seul evenement -->
-        <%= render "ligne", :event => @events %>
+        <%= render "ligne", :event => event %>
+      <% anc_debut_jour = event.debut_jour %>
     <% end %>
 
 </div>
@@ -35,6 +28,10 @@
 
 <br>
 
+
+    <a name="method-i-assoc"> </a>
+
     <p class="text-center">
+
     <%= link_to 'Ajouter un événement', new_event_path , class: "btn btn-primary"%>
     </p>

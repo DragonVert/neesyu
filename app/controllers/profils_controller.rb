@@ -25,6 +25,7 @@ class ProfilsController < ApplicationController
   # POST /profils.json
   def create
     @profil = Profil.new(profil_params)
+    @profil.user = current_user
 
     respond_to do |format|
       if @profil.save
@@ -40,14 +41,19 @@ class ProfilsController < ApplicationController
   # PATCH/PUT /profils/1
   # PATCH/PUT /profils/1.json
   def update
-    respond_to do |format|
-      if @profil.update(profil_params)
-        format.html { redirect_to @profil, notice: 'Profil was successfully updated.' }
-        format.json { render :show, status: :ok, location: @profil }
-      else
-        format.html { render :edit }
-        format.json { render json: @profil.errors, status: :unprocessable_entity }
-      end
+    if (current_user == @profil.user)
+        respond_to do |format|
+          if @profil.update(profil_params)
+            format.html { redirect_to @profil, notice: 'Profil was successfully updated.' }
+            format.json { render :show, status: :ok, location: @profil }
+          else
+            format.html { render :edit }
+            format.json { render json: @profil.errors, status: :unprocessable_entity }
+          end
+        end
+    else
+            flash[:alert] = "Vous n'est pas autorisé à modifier ce profil"
+            link_to root_path
     end
   end
 

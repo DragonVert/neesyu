@@ -9,6 +9,12 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <!-- Recherche des activites à partir d'une date -->
+    <%= link_to events_path(debut: DateTime.now.to_s), info: "A partir d'aujourd'hui", class: "navbar-wagon-brand" do %>
+        <i class="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
+    <% end %>
+
+
     <!-- Search form -->
     <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Rechercher...">
@@ -42,6 +48,18 @@
               <%= link_to "#" do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
+            </li>
+            <li>
+                    <!-- Si le profil existe on l'edite sinon on le cree -->
+                <% if current_user.try(:profil) %>
+                      <%= link_to profil_path(current_user.profil) do %>
+                        <i class="fa fa-home"></i>  <%= t(".profile", default: "Mon profil") %>
+                      <% end %>
+                <% else %>
+                      <%= link_to new_profil_path do %>
+                            <i class="fa fa-home"></i>  <%= t(".profile", default: "Mon profil") %>
+                      <% end %>
+                <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
