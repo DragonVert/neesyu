@@ -2,8 +2,9 @@ class PagesController < ApplicationController
   def home
   end
   def search
-        if params[:search]
-            @ligne = params[:search]
+
+        if params[:mots]
+            @ligne = params[:mots]
 
             @events = search_string(@ligne)
 
