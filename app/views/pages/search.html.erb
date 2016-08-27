@@ -1,0 +1,21 @@
+            Search page 1
+
+            <!-- On affiche si non vide -->
+            <% @afficher = false %>
+
+            <% if (@profils.count > 0) %>
+                <% @afficher = true %>
+                <%= render template: "profils/index" %>
+            <% end %>
+
+            <% if @events.count > 0 %>
+                <% @afficher = true %>
+                <%= render template: "events/index" %>
+            <% end %>
+
+            <% if !@afficher %>
+                <% flash[:notice] = "Aucun résultat à votre recherche" %>
+                <%= render (:back) %>
+            <% end %>
+
+            Search page 2
