@@ -26,7 +26,13 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    if (current_user.profil)
+        @event = Event.new
+    else
+        alert = "Vous devez créer un profil avant"
+        flash[:alert] = "Vous devez créer un profil avant 2"
+        redirect_to new_profil_path
+    end
   end
 
   # GET /events/1/edit
@@ -93,6 +99,6 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:titre, :description, :prix, :debut, :fin,
                         :lieu, :adresse, :cp, :ville, :pays, :reduit, :contact,
-                        :transport)
+                        :transport, :photo)
     end
 end

@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
 
     belongs_to :user
+    has_attachment :photo
+
 
     # Jour de la semaine pour affichage
     JOURDESEMAINE = ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
@@ -36,11 +38,15 @@ class Event < ApplicationRecord
                                "/" + self.cp.to_s.downcase +
                                "/" + self.ville.to_s.downcase +
                                "/" + self.pays.to_s.downcase +
-                               "/" + self.transport.to_s.downcase +
+                               "/" + self.transport.to_s.downcase
+
+            if self.user.profil
+                    self.search_text =  self.search_text +
                                "/" + self.user.profil.nom.to_s.downcase +
                                "/" + self.user.profil.prenom.to_s.downcase +
                                "/" + self.user.profil.pseudo.to_s.downcase +
                                "/" + self.user.profil.detail.to_s.downcase +
                                "/" + self.user.profil.activite.to_s.downcase
+            end
     end
 end

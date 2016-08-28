@@ -31,3 +31,14 @@
 <p class="text-center">
 <%= link_to "Liste des événements", events_path, class: "btn btn-primary" %>
 </p>
+
+<% if current_user %>
+        <% if current_user.avatar? %>
+               <%= cl_image_tag current_user.avatar.path, width: 30, height: 30, crop: :fill,
+               class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', :'data-toggle' => 'dropdown-toggle' %>
+        <% else %>
+              <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <% end %>
+<% else %>
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+<% end %>

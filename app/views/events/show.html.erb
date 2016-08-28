@@ -7,6 +7,13 @@
         <div class="col-md-8 col-md-offset-2 text-center"> <h3> <%= @event.titre %> </h3> </div>
     </row>
     <row>
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <% if @event.photo? %>
+                <%= cl_image_tag @event.photo.path  %>
+            <% end %>
+        </div>
+    </row>
+    <row>
         <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-info" aria-hidden="true"></i> &nbsp
                             <%= @event.description %> </div>
     </row>
@@ -71,8 +78,8 @@
 <% @lien = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + @text + "&dates=" + @dates + "&details=" + @details +"&location=" + @location + "&sf=true&output=xml#eventpage_6" %>
 
 <p class= "text-center">
-    <% if current_user == @event.user %>
-       <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
+    <% if (current_user == @event.user) %>
+         <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
     <% end %>
     <%= link_to 'Tous les événements', events_path, class: "btn btn-primary" %> <br> <br>
     <%= link_to "Enregistrer dans Google Calendar", @lien, class: "btn btn-primary" %>

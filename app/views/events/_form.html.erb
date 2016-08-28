@@ -5,6 +5,7 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
+            <%= f.input :photo, as: :attachinary %>
             <%= f.input :titre, placeholder: "Cours de 5 rythmes", label: "Gros titre" %>
             <%= f.input :description, placeholder: "Pour danser sans penser mais se dépenser..." %>
             <%= f.input :prix, placeholder: "0" %>
