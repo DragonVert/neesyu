@@ -7,6 +7,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <p>
+                <% if @profil.user.avatar %>
+                        <%= cl_image_tag @profil.user.avatar.path, width: 30, height: 30, crop: :fill,
+                          class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', :'data-toggle' => 'dropdown-toggle' %>
+                <% end %>
+            </p>
+
+            <p>
               <em>Pseudo : </em>
               <strong> <%= @profil.pseudo %> </strong>
             </p>
