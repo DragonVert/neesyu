@@ -3,21 +3,24 @@
                     <div class="row">
                         <div class="col-xs-1 col-sm-1 col-md-1 text-left"> <font size=-2> <%= event.debut_heure %> </font>
                         </div>
-                        <div class="col-xs-1 col-sm-1 col-md-1 text-left">
-                            <% if event.photo? %>
-                                     <%= cl_image_tag event.photo, width: 30, height: 30, crop: :fill,
-                                        class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu',
-                                            :'data-toggle' => 'dropdown-toggle' %>
+                        <div class="col-xs-1 col-sm-1 col-md-1 text-right">
+                            <% if event.user.avatar? %>
+                                     <%= cl_image_tag event.user.avatar.path, width: 30, height: 30, crop: :fill,
+                                        class: 'avatar dropdown-toggle' %>
                             <% else %>
                                         oOo
                             <% end %>
                         </div>
-                        <div class="col-xs-9 col-sm-9 col-md-9 text-left"> <b> <%= event.titre %> </b> <br>
+                        <div class="col-xs-8 col-sm-8 col-md-8 text-left"> <b> <%= event.titre %> </b> <br>
                             <font size=-1>par <%=event.user.profil.pseudo %> à <%= event.ville %></font>
                         </div>
-                        <div class="col-xs-1 col-sm-1 col-md-1"> <font size=-1>
-                                <%= event.prix %> <sup>€</sup> </div></font>
+                        <div class="col-xs-1 col-sm-1 col-md-1">
+                            <!-- si prix non defini -->
+                            <% if event.prix.to_i > 0 %>
+                                <font size=-1>   <%= event.prix %> <sup>€</sup> </font>
+                            <% end %>
                         </div>
-                        <hr size="5" color="blue">
-                        </font>
+                    </div>
+                    <hr size="5" color="blue">
+                    </font>
               <% end %>

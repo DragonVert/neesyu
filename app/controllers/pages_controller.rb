@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
   end
+  def contact
+  end
   def search
 
         if params[:mots]
@@ -28,7 +30,7 @@ class PagesController < ApplicationController
                 flash[:notice] = "Aucun résultat à votre recherche"
                 redirect_to (:back)
             else
-                flash[:notice] = "Nous avons trouves #{@nb_events_trouves} events et #{@nb_profils_trouves} profils !!"
+                flash[:notice] = "Nous avons trouve #{@nb_events_trouves} events et #{@nb_profils_trouves} profils !!"
             end
 
         end

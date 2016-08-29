@@ -10,15 +10,15 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Recherche des activites à partir d'une date -->
-    <%= link_to events_path(debut: DateTime.now.to_s), info: "A partir d'aujourd'hui", class: "navbar-wagon-brand" do %>
+    <%= link_to events_path(debut: DateTime.now.to_s), info: "A partir d'aujourd'hui", class: "navbar-wagon-brand", label: "Toto" do %>
         <i class="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
     <% end %>
 
 
     <!-- Search form -->
-    <form action="search" class="navbar-wagon-search">
+    <form action="/search" controller="pages" class="navbar-wagon-search" >
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something " name="mots" >
-      <button type="submit" class="navbar-wagon-search-btn">
+      <button type="submit" class="navbar-wagon-search-btn" >
         <i class="fa fa-search"></i>
       </button>
     </form>
@@ -95,18 +95,29 @@
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
+
+
+    <!-- Search form -->
+    <form action="/search" controller="pages"  class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search something" name="mots" >
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+
     <div class="dropdown">
         <% if current_user %>
                 <% if current_user.avatar? %>
                        <%= cl_image_tag current_user.avatar.path, width: 30, height: 30, crop: :fill,
-                       class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', :'data-toggle' => 'dropdown-toggle' %>
+                       class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', "data-toggle" => "dropdown" %>
                 <% else %>
                       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
                 <% end %>
         <% else %>
               <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <% end %>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
 
               <%= link_to profils_path do %>
@@ -114,8 +125,9 @@
               <% end %>
 
 
-        <li><a href="#">Les membres</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><%= link_to "Les events" , events_path  %> </li>
+        <li><%= link_to "Les membres" , profils_path  %> </li>
+        <li><%= link_to "Contact" , contact_path  %> </li>
         <% if user_signed_in? %>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>

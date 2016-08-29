@@ -12,8 +12,7 @@
             <div class="row">
                 <div class="class col-md-2 col-md-offset-1 text-right">
                         <% if profil.user.avatar %>
-                            <%= cl_image_tag profil.user.avatar.path, width: 30, height: 30, crop: :fill,
-                                        class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', :'data-toggle' => 'dropdown-toggle' %>
+                            <%= cl_image_tag profil.user.avatar.path, width: 30, height: 30, crop: :fill  %>
                         <% end %>
                 </div>
 

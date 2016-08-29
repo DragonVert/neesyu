@@ -6,14 +6,14 @@
 
           <div class="form-inputs">
             <%= f.input :photo, as: :attachinary %>
-            <%= f.input :titre, placeholder: "Cours de 5 rythmes", label: "Gros titre" %>
+            <%= f.input :titre, placeholder: "Cours de 5 rythmes", label: "Nom de l événement" %>
             <%= f.input :description, placeholder: "Pour danser sans penser mais se dépenser..." %>
             <%= f.input :prix, placeholder: "0" %>
             <%= f.input :debut, placeholder: DateTime.new %>
             <%= f.input :fin, placeholder: DateTime.new %>
             <%= f.input :lieu, placeholder: "Salle May B" %>
             <%= f.input :adresse, placeholder: "16 rue Geoffroy d'Asnier" %>
-            <%= f.input :cp, placeholder: "75002"  %>
+            <%= f.input :cp, placeholder: "75002", label: "CP"   %>
             <%= f.input :ville, placeholder: "Paris" %>
             <%= f.input :pays, placeholder:  "France" %>
             <%= f.input :reduit, placeholder: "Tarif réduit pour étudiant/chomeur et abonnement" %>

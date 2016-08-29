@@ -112,7 +112,7 @@ else
   @user = User.create!( email:"justdancewithlife.uk@gmail.com", password:"foobar")
 
 
-  @profil = Profil.create!( nom:"Chantereau", prenom:"Cyrill", site:"http://www.justdancewithlife.com/", activite:"5 rythmes", user: @user)
+  @profil = Profil.create!( nom:"Chantereau", prenom:"Cyrill", site:"http://www.justdancewithlife.com/", activite:"Movement medecine", user: @user)
   @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
   @profil.set_search; @profil.save
 
@@ -154,7 +154,7 @@ else
   @evt = Event.new; @evt.titre = "Les Hommes Dansent » session 2"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2016  ,  12 ,  11 ,  15 ,  15 ); @evt.fin = DateTime.new( 2016  ,  12 ,  11 ,  19 ,  15 ); @evt.prix =   0  ; @evt.lieu = "Studio One Step"; @evt.adresse = "18, rue Fb du Temple "; @evt.cp = "75011"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "M° République - sortie 4"; @evt.user = @user; @evt.set_search; @evt.save
   @evt = Event.new; @evt.titre = "Danser le Solstice d’Hiver"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2016  ,  12 ,  17 ,  17 ,  30 ); @evt.fin = DateTime.new( 2016  ,  12 ,  18 ,  17 ,  30 ); @evt.prix =   0  ; @evt.lieu = "Centre Bios"; @evt.adresse = "8 impasse Druinot"; @evt.cp = "75012"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "Métro : Faidherbe Chaligny"; @evt.user = @user; @evt.set_search; @evt.save
   @evt = Event.new; @evt.titre = "Water & Fire Circles "; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2017  ,  1  ,  7  ,  15 ,  0  ); @evt.fin = DateTime.new( 2017  ,  1  ,  7  ,  19 ,  0  ); @evt.prix =   0  ; @evt.lieu = "Studio One Step"; @evt.adresse = "18, rue Fb du Temple "; @evt.cp = "75011"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "M° République - sortie 4"; @evt.user = @user; @evt.set_search; @evt.save
-  @evt = Event.new; @evt.titre = "Family Dancing"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2017  ,  1  ,  21 ,  14 ,  30 ); @evt.fin = DateTime.new( 2017  ,  1  ,  21 ,  18 ,  30 ); @evt.prix =   0  ; @evt.lieu = "Centre Bios"; @evt.adresse = "8 impasse Druinot"; @evt.cp = "75012"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "Métro : Faidherbe Chaligny"; @evt.user = @user; @evt.set_search; @evt.save
+  @evt = Event.new; @evt.titre = "Family Dancing"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2017  ,  1  ,  20 ,  14 ,  30 ); @evt.fin = DateTime.new( 2017  ,  1  ,  21 ,  18 ,  30 ); @evt.prix =   0  ; @evt.lieu = "Centre Bios"; @evt.adresse = "8 impasse Druinot"; @evt.cp = "75012"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "Métro : Faidherbe Chaligny"; @evt.user = @user; @evt.set_search; @evt.save
   @evt = Event.new; @evt.titre = "La mensuelle de la danse médecine"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2017  ,  1  ,  13 ,  19 ,  0  ); @evt.fin = DateTime.new( 2017  ,  1  ,  13 ,  22 ,  0  ); @evt.prix =   0  ; @evt.lieu = "Micadanses - Studio May B"; @evt.adresse = "15, rue Geoffroy L Asnier"; @evt.cp = "75004"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "M° St Paul"; @evt.user = @user; @evt.set_search; @evt.save
   @evt = Event.new; @evt.titre = "Les Hommes Dansent »   session 3 "; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2017  ,  1  ,  28 ,  15 ,  15 ); @evt.fin = DateTime.new( 2017  ,  1  ,  28 ,  19 ,  15 ); @evt.prix =   0  ; @evt.lieu = "Studio One Step"; @evt.adresse = "18, rue Fb du Temple "; @evt.cp = "75011"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "M° République - sortie 4"; @evt.user = @user; @evt.set_search; @evt.save
   @evt = Event.new; @evt.titre = "La MESA Practice"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2017  ,  2  ,  25 ,  15 ,  30 ); @evt.fin = DateTime.new( 2017  ,  2  ,  25 ,  19 ,  30 ); @evt.prix =   0  ; @evt.lieu = "Studio One Step"; @evt.adresse = "18, rue Fb du Temple "; @evt.cp = "75011"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "0"; @evt.transport = "M° République - sortie 4"; @evt.user = @user; @evt.set_search; @evt.save
@@ -333,7 +333,7 @@ else
     puts ("User inmotioneurope@gmail.com n existe pas, on le cree")
     @user = User.create!( email:"inmotioneurope@gmail.com", password:"foobar")
 
-    @profil = Profil.create!( nom:"Chambalou", prenom:"Véronique", site:"http://www.inmotioneurope.com/", activite:"5 rythmes", user: @user)
+    @profil = Profil.create!( nom:"Chambalou", prenom:"Véronique", site:"http://www.inmotioneurope.com/", activite:"Movement medecine", user: @user)
     @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
     @profil.set_search; @profil.save
 

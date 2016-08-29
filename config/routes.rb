@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   # resultats de recherche
-  get '/pages/search', to: 'pages#search', as: 'search'
-  get '/search', to: 'pages#search', as: 'search2'
+  get '/search', to: 'pages#search', as: 'search'
+  get '/contact', to: 'pages#contact', as: 'contact'
 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
