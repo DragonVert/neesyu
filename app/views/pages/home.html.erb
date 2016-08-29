@@ -15,13 +15,10 @@
 <div class="container">
     <row>
         <div class="col-md-8 col-md-offset-2" >
-              <p class="text-center">L'agenda parisien complet pour danser et s'épanouir.
+              <p class="text-center">L'agenda parisien pour danser et s'épanouir.
               Vous trouverez ici toutes les activités sur Paris des danses de 5 Rythmes, Mouvment Medecine et Openfloor ... pour commencer.
-              </p>
-
-              <p class="text-center">
-              Ceci est un site en cours de construction donc il y a des améliorations à réaliser, et nous y travaillons ... mais peut-être qu'il peut déjà vous rendre service. En résumé, si vous en êtes content, remerciez-le et s'il vous contrarie, soyez indulgent. Merci ... et que les dieux de la danse vous transportent.
-
+              Ceci site est en cours de construction, vos remarques et suggestions sont les bienvenues.
+              Que les dieux de la danse nous transportent.
               </p>
         </div>
     </row>
@@ -32,13 +29,3 @@
 <%= link_to "Liste des événements", events_path, class: "btn btn-primary" %>
 </p>
 
-<% if current_user %>
-        <% if current_user.avatar? %>
-               <%= cl_image_tag current_user.avatar.path, width: 30, height: 30, crop: :fill,
-               class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu', :'data-toggle' => 'dropdown-toggle' %>
-        <% else %>
-              <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-        <% end %>
-<% else %>
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-<% end %>

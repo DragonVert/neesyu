@@ -26,12 +26,15 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    if (current_user.profil)
-        @event = Event.new
-    else
-        alert = "Vous devez créer un profil avant"
-        flash[:alert] = "Vous devez créer un profil avant 2"
+    if !current_user
+        flash[:alert] = "Vous devez vous connectez pour creer un evenement"
+        redirect_to new_user_session_path
+
+    elsif (current_user.profil.nil?)
+        flash[:alert] = "Vous devez vous créer un profil pour creer un evenement"
         redirect_to new_profil_path
+    else
+        @event = Event.new
     end
   end
 

@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= Rails.env = @profils[0].pseudo %>
 
-Prolils Index
 <% @titre_page = 'Liste profils' %>
 <h4 class="text-center"> <em>Les profils</em></h4>
 <hr>
@@ -14,7 +12,7 @@ Prolils Index
             <div class="row">
                  <div class="col-md-6 col-md-offset-3">
                           <font color="#9A3619">
-                          <%= profil.pseudo %> (<%= profil.prenom %> <%= profil.nom %>) <br>
+                          <%= profil.pseudo %>  (<%= profil.prenom %> <%= profil.nom %>) <br>
                           <em> <%= profil.activite %> </em>
                           <hr>
                  </div>

@@ -45,19 +45,19 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Mon compte") %>
               <% end %>
             </li>
             <li>
                     <!-- Si le profil existe on l'edite sinon on le cree -->
                 <% if current_user.try(:profil) %>
                       <%= link_to profil_path(current_user.profil) do %>
-                        <i class="fa fa-user"></i>  <%= t(".profile", default: "Mon profil") %>
+                        <i class="fa fa-user"></i>  <%= t(".profile", default: "Editer mon profil") %>
                       <% end %>
                 <% else %>
                       <%= link_to new_profil_path do %>
-                            <i class="fa fa-user"></i>  <%= t(".profile", default: "Mon profil") %>
+                            <i class="fa fa-user"></i>  <%= t(".profile", default: "Crrer mon profil") %>
                       <% end %>
                 <% end %>
             </li>

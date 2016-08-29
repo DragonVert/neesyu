@@ -27,6 +27,8 @@ class PagesController < ApplicationController
             if !@afficher
                 flash[:notice] = "Aucun résultat à votre recherche"
                 redirect_to (:back)
+            else
+                flash[:notice] = "Nous avons trouves #{@nb_events_trouves} events et #{@nb_profils_trouves} profils !!"
             end
 
         end
@@ -36,12 +38,13 @@ class PagesController < ApplicationController
 
         # Liste des evenements
         @events_search = Event.all
-
-        # recherche des evenements contenant le mot
-        @events_search = @events_search.select{ |e| e.search_text.include?(mot)}
-
         if @events_search.nil?
             @events_search = []
+            @nb_events_trouves = 0
+        else
+            # recherche des evenements contenant le mot
+            @events_search = @events_search.select{ |e| e.search_text.to_s.include?(mot)}
+            @nb_events_trouves = @events_search.count
         end
 
         return @events_search
@@ -51,12 +54,13 @@ class PagesController < ApplicationController
 
         # Liste des profils
         @profils_search = Profil.all
-
-        # recherche des evenements contenant le mot
-        @profils_search = @profils_search.select{ |p| p.search_text.include?(mot)}
-
         if @profils_search.nil?
             @profils_search = []
+            @nb_profils_trouves = 0
+        else
+            # recherche des evenements contenant le mot
+            @profils_search = @profils_search.select{ |p| p.search_text.to_s.include?(mot)}
+            @nb_profils_trouves = @profils_search.count
         end
 
         return @profils_search

@@ -1,14 +1,23 @@
               <%= link_to event do %>
-                  <font color="#9A3619">
-                  <div class="row">
-                      <div class="col-xs-1 col-sm-1 col-md-1 text-left"> <font size=-2> <%= event.debut_heure %> </font> </div>
-                      <div class="col-xs-10 col-sm-10 col-md-10 text-left"> <b> <%= event.titre %> </b></div>
-                   </div>
-
-                   <div class="row">
-                     <div class="col-xs-9 col-xs-offset-1 col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1"> <font size=-1>par <%=event.user.profil.pseudo %> à <%= event.ville %></font> </div>
-                     <div class="col-xs-1 col-sm-1 col-md-1"> <font size=-1><%= event.prix %><sup>€</sup> </div></font>
-                   </div>
-                   <hr size="5" color="blue">
-                   </font>
+                    <font color="#9A3619">
+                    <div class="row">
+                        <div class="col-xs-1 col-sm-1 col-md-1 text-left"> <font size=-2> <%= event.debut_heure %> </font>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1 text-left">
+                            <% if event.photo %>
+                                     <%= cl_image_tag event.photo.path, width: 30, height: 30, crop: :fill,
+                                        class: 'avatar dropdown-toggle', id: 'navbar-wagon-menu',
+                                            :'data-toggle' => 'dropdown-toggle' %>
+                            <% else %>
+                                        oOo
+                            <% end %>
+                        </div>
+                        <div class="col-xs-9 col-sm-9 col-md-9 text-left"> <b> <%= event.titre %> </b> <br>
+                            <font size=-1>par <%=event.user.profil.pseudo %> à <%= event.ville %></font>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1"> <font size=-1>
+                                <%= event.prix %> <sup>€</sup> </div></font>
+                        </div>
+                        <hr size="5" color="blue">
+                        </font>
               <% end %>
