@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_one :profil
-  has_many :events
+  has_one :profil, dependent: :destroy
+  has_many :events, dependent: :destroy
   has_attachment :avatar
 
   # Include default devise modules. Others available are:
