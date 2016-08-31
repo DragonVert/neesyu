@@ -65,7 +65,6 @@ class EventsController < ApplicationController
   def update
     if current_user == @event.user
         @event.set_search
-        binding.pry
         respond_to do |format|
           if @event.update(event_params)
             format.html { redirect_to @event, notice: "L'événement a été modifié." }
