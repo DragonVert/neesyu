@@ -10,7 +10,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Recherche des activites à partir d'une date -->
-    <%= link_to events_path(debut: DateTime.now.to_s), info: "A partir d'aujourd'hui", class: "navbar-wagon-brand", label: "Toto" do %>
+    <%= link_to events_path(debut: DateTime.now.to_s), info: "A partir d'aujourd'hui", class: "navbar-wagon-brand", title: "Les prochains événements" do %>
         <i class="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i>
     <% end %>
 
@@ -94,10 +94,7 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Les événements"), events_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: " Créer event"), new_event_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to t(".top_call_to_action", default: "+"), new_event_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

@@ -50,9 +50,11 @@
 <p class="text-center">
 <% if current_user == @profil.user %>
     <%= link_to "Modifier mon profil", edit_profil_path, class: "btn btn-primary" %>
+    <%= link_to "Mes événements", events_path(user: @profil.user), class: "btn btn-primary" %>
+<% else %>
+    <%= link_to "Ses événements", events_path(user: @profil.user), class: "btn btn-primary" %>
 <% end %>
-<%= link_to "Tous les événements", events_path, class: "btn btn-primary" %>
-<%= link_to "Ses prochains événements", events_path(user: @profil.user), class: "btn btn-primary" %>
+
 </p>
 
 
