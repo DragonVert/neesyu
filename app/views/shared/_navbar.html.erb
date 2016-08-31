@@ -62,16 +62,20 @@
                     <!-- Si le profil existe on l'edite sinon on le cree -->
                 <% if current_user.try(:profil) %>
                       <%= link_to profil_path(current_user.profil) do %>
-                        <i class="fa fa-user"></i>  <%= t(".profile", default: "Editer mon profil") %>
+                        <i class="fa fa-user"></i>  <%= t(".profile", default: "Mon profil") %>
                       <% end %>
                 <% else %>
                       <%= link_to new_profil_path do %>
-                            <i class="fa fa-user"></i>  <%= t(".profile", default: "Crrer mon profil") %>
+                            <i class="fa fa-user"></i>  <%= t(".profile", default: "Mon profil") %>
                       <% end %>
                 <% end %>
             </li>
             <li>
-                    <%= link_to "Contact" , contact_path  %>
+                    <%= link_to  contact_path do  %>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                     <%= t(".profile", default: "Contact") %>
+
+                    <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>

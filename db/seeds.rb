@@ -173,7 +173,7 @@ else
   puts ("User garancem@msn.com n existe pas, on le cree")
   @user = User.create!( email:"garancem@msn.com", password:"foobar")
 
-  @profil = Profil.create!( nom:"Monziès", prenom:"Garance", site:"http://www.danseinspiree.com/", activite:"5 rythmes", user: @user)
+  @profil = Profil.create!( nom:"Monziès", prenom:"Garance", site:"http://www.danseinspiree.com/", activite:"Openfloor", user: @user)
   @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
   @profil.set_search; @profil.save
 
@@ -373,4 +373,16 @@ else
     @evt = Event.new; @evt.titre = "Danse à 5 rythmes"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2016  ,  11 ,  12 ,  16 ,  0  ); @evt.fin = DateTime.new( 2016  ,  11 ,  12 ,  19 ,  0  ); @evt.prix =   15 ; @evt.lieu = "Micadanses - Studio May B"; @evt.adresse = "15, rue Geoffroy L Asnier"; @evt.cp = "75004"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "10"; @evt.transport = "M° St Paul"; @evt.user = @user; @evt.set_search; @evt.save
     @evt = Event.new; @evt.titre = "Danse à 5 rythmes"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2016  ,  11 ,  20 ,  19 ,  0  ); @evt.fin = DateTime.new( 2016  ,  11 ,  20 ,  21 ,  0  ); @evt.prix =   15 ; @evt.lieu = "Micadanses - Studio May B"; @evt.adresse = "15, rue Geoffroy L Asnier"; @evt.cp = "75004"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "10"; @evt.transport = "M° St Paul"; @evt.user = @user; @evt.set_search; @evt.save
     @evt = Event.new; @evt.titre = "Danse à 5 rythmes"; @evt.description = "Cours de rythmes"; @evt.debut = DateTime.new( 2016  ,  12 ,  10 ,  18 ,  0  ); @evt.fin = DateTime.new( 2016  ,  12 ,  10 ,  21 ,  0  ); @evt.prix =   15 ; @evt.lieu = "Micadanses - Studio May B"; @evt.adresse = "15, rue Geoffroy L Asnier"; @evt.cp = "75004"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "10"; @evt.transport = "M° St Paul"; @evt.user = @user; @evt.set_search; @evt.save
+end
+
+@user = User.find_by(email: "lnerot@yahoo.fr")
+if @user
+    puts ("User avec lnerot@yahoo.fr existe deja")
+else
+    puts ("User lnerot@yahoo.fr n existe pas, on le cree")
+    @user = User.create!( email:"lnerot@yahoo.fr", password:"foobar")
+
+    @profil = Profil.create!( nom:"NEROT", prenom:"Lucie", site:"http://www.dancingacrossborders.com/", activite:"Openfloor", user: @user)
+    @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
+    @profil.set_search; @profil.save
 end
