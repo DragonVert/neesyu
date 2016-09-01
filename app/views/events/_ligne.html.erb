@@ -3,13 +3,13 @@
                     <div class="row">
                         <div class="col-xs-1 col-sm-1 col-md-1 text-left"> <font size=-2> <%= event.debut_heure %> </font>
                         </div>
-                        <div class="col-xs-1 col-sm-1 col-md-1 text-right">
+                        <div class="col-xs-1 col-sm-1 col-md-1 text-right vertical-align:middle">
 
                             <% if event.user.avatar? %>
                                      <%= cl_image_tag event.user.avatar.path, width: 30, height: 30, crop: :fill,
                                         radius: 5 %>
                             <% else %>
-                                        oOo
+                                        .O.
                             <% end %>
                         </div>
                         <div class="col-xs-8 col-sm-8 col-md-8 "> <b> <%= event.titre %> </b> <br>

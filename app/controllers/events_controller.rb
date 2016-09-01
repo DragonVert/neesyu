@@ -9,12 +9,18 @@ class EventsController < ApplicationController
     elsif params[:debut]
         @annee = params[:debut][0..3].to_i
         @mois = params[:debut][5..6].to_i
-        @jour = params[:debut][7..8].to_i
+        @jour = params[:debut][8..9].to_i
         @debut = DateTime.new(@annee, @mois, @jour)
         @events = Event.all.order(debut: :asc)
         @events = @events.select{ |e| e.debut > @debut}
     else
+        @today = DateTime.now.to_s
+        @annee = @today[0..3].to_i
+        @mois = @today[5..6].to_i
+        @jour = @today[8..9].to_i
+        @debut = DateTime.new(@annee, @mois, @jour)
         @events = Event.all.order(debut: :asc)
+        @events = @events.select{ |e| e.debut > @debut}
     end
   end
 
