@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :profils
   resources :events
+  resources :participations, only: [:create, :destroy]
   devise_for :users
   root to: 'pages#home'
 

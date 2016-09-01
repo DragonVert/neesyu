@@ -1,7 +1,9 @@
 class Event < ApplicationRecord
 
     belongs_to :user
-    has_attachment :photo
+    has_many :participations, dependent: :destroy
+
+    has_attachment :photo, dependent: :destroy
 
 
     # Jour de la semaine pour affichage
