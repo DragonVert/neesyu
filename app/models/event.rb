@@ -31,6 +31,14 @@ class Event < ApplicationRecord
       end
     end
 
+    # Fin sous forme hh:mm
+    def fin_heure
+      if self.fin
+        text_date = self.fin.to_s.downcase
+        text_aff = text_date[11..15]
+      end
+    end
+
     # Mettre a jour le search_text
     def set_search
             self.search_text =  self.titre.to_s.downcase +
