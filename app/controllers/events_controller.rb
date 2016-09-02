@@ -54,7 +54,6 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     @event.set_search
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: "L'événement a été créé." }
@@ -69,7 +68,22 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    if current_user == @event.user
+    if (params[:commit] == "Dupliquer")
+        @event = Event.new(event_params)
+        @event.user = current_user
+        @event.set_search
+
+        respond_to do |format|
+          if @event.save
+            format.html { redirect_to @event, notice: "L'événement a été dupliqué" }
+            format.json { render :show, status: :ok, location: @event }
+          else
+            format.html { render :edit }
+            format.json { render json: @event.errors, status: :unprocessable_entity }
+          end
+        end
+
+    elsif current_user == @event.user
         @event.set_search
         respond_to do |format|
           if @event.update(event_params)

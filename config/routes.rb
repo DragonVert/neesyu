@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # resultats de recherche
   get '/search', to: 'pages#search', as: 'search'
   get '/contact', to: 'pages#contact', as: 'contact'
+  get '/duplicate/:id', to: 'events#duplicate', as: 'duplicate'
 
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
