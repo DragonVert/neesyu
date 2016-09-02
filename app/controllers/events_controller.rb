@@ -103,10 +103,17 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: "L'événement a été détruit." }
-      format.json { head :no_content }
+    if current_user == @event.user
+        @event.destroy
+        respond_to do |format|
+          format.html { redirect_to events_url, notice: "L'événement a été détruit." }
+          format.json { head :no_content }
+        end
+    else
+        respond_to do |format|
+          format.html { redirect_to events_url, notice: "vous ne pouvez pas supprimer cet evenement" }
+          format.json { head :no_content }
+        end
     end
   end
 
