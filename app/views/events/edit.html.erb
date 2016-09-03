@@ -1,5 +1,8 @@
-<h1 class="text-center">Modifier l'événement</h1>
-
+<% if session[:duplicate] %>
+    <h1 class="text-center">Dupliquer l'événement</h1>
+<% else %>
+    <h1 class="text-center">Modifier l'événement</h1>
+<% end %>
 <%= render 'form', event: @event %>
 
 <div class="text-center">

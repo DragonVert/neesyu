@@ -3,93 +3,106 @@
 
 <h4 class="text-center"> Détail de l'événément </h4>
 <div class="container">
-    <row>
-        <div class="col-md-8 col-md-offset-2 text-center"> <h3> <%= @event.titre %> </h3> </div>
-    </row>
-    <row>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center"> <h3> <%= @event.titre %>  </h3> </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
             <% if @event.photo? %>
                 <%= cl_image_tag @event.photo.path  %>
             <% end %>
         </div>
-    </row>
-    <row>
-        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-info" aria-hidden="true"></i> &nbsp
-                            <%= @event.description %> </div>
-    </row>
-    <row>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 "><i class="fa fa-info" aria-hidden="true"></i> &nbsp
+                            <%= @event.description %>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-user" aria-hidden="true"></i> &nbsp
-
+                 <% if @event.user.profil %>
                       <%= link_to "#{@event.user.profil.prenom} #{@event.user.profil.nom}" , profil_path(@event.user.profil) %>
-                      </b> </div>
-    </row>
-    <row>
+                      </b>
+                <% end %>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-calendar" aria-hidden="true"></i> &nbsp
-                            <%= @event.debut_jour%> de <%= @event.debut_heure %> à <%= @event.fin_heure %> </div>
-    </row>
-    <row>
+                            <%= @event.debut_jour%> de <%= @event.debut_heure %> à <%= @event.fin_heure %>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp
-                            <%= @event.lieu %>,<br> &nbsp &nbsp &nbsp <%=@event.adresse %> <br> &nbsp &nbsp &nbsp <%= @event.ville %> </div>
-    </row>
-    <row>
+                            <%= @event.lieu %>,<br> &nbsp &nbsp &nbsp <%=@event.adresse %> <br> &nbsp &nbsp &nbsp
+                            <%= @event.ville %>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 ">  <i class="fa fa-eur" aria-hidden="true"></i> &nbsp
-                                <%= @event.prix%> </div>
-    </row>
-    <row>
-        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> &nbsp
- <%= @event.reduit%> </div>
-    </row>
-    <row>
+                                <%= @event.prix%>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+ &nbsp
+                        <%= @event.reduit%>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-subway" aria-hidden="true"></i> &nbsp
-                                    <%= @event.transport%> </div>
-    </row>
-    <row>
+                                    <%= @event.transport%>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp
 
-                                        <%= @event.contact%> </div>
-    </row>
-    <row>
+                                        <%= @event.contact%>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 col-md-offset-2 "> <i class="fa fa-home" aria-hidden="true"></i> &nbsp
 
-                                        <%= @event.site%> </div>
-    </row>
+                                        <%= @event.site%>
+        </div>
+    </div>
 
+
+
+    <div class= "row">
+        <div class="col-md-8 col-md-offset-2">
+            <!-- Ajouter au calendrier Google transformer l heure en Greenwich -2h été -->
+            <% @debut = @event.debut - 2.hour %>
+            <% @fin = @event.fin - 2.hour %>
+
+            <% @text = @event.titre.gsub(' ','+') %>
+            <% @dates1 = @debut.to_s[0..3] + @debut.to_s[5..6] + @debut.to_s[8..9]  %>
+            <% @dates2 =  "T" + @debut.to_s[11..12] + @debut.to_s[14..15] + @debut.to_s[17..18] + "Z/" %>
+            <% @dates3 = @fin.to_s[0..3] + @fin.to_s[5..6] + @fin.to_s[8..9] %>
+            <% @dates4 = "T" + @fin.to_s[11..12] + @fin.to_s[14..15] + @fin.to_s[17..18] + "Z/" %>
+            <% @dates = @dates1 + @dates2 + @dates3 + @dates4 %>
+            <% @details = @event.description.gsub(' ','+') %>
+            <% @location = @event.cp.gsub(' ','+') + "," + @event.ville.gsub(' ','+') %>
+
+            <!-- Ajouter au calendrier Google-->
+            <% @text =  @text  %>
+            <% @dates1 = @debut.to_s[0..3] + @debut.to_s[5..6] + @debut.to_s[8..9]  %>
+            <% @dates2 =  "T" + @debut.to_s[11..12] + @debut.to_s[14..15] + @debut.to_s[17..18] + "Z/" %>
+            <% @dates3 = @fin.to_s[0..3] + @fin.to_s[5..6] + @fin.to_s[8..9] %>
+            <% @dates4 = "T" + @fin.to_s[11..12] + @fin.to_s[14..15] + @fin.to_s[17..18] + "Z" %>
+            <% @dates = @dates1 + @dates2 + @dates3 + @dates4 %>
+            <% @details = @event.description.gsub(' ','+') %>
+            <% @location = @event.cp.gsub(' ','+') + "," + @event.ville.gsub(' ','+') %>
+
+            <% @lien = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + @text + "&dates=" + @dates + "&details=" + @details +"&location=" + @location + "&sf=true&output=xml#eventpage_6" %>
+            <% if (current_user == @event.user) %>
+                 <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
+                 <%= link_to 'Supprimer', event_path(@event), method: :delete, :class => "btn btn-primary" %>
+            <% end %>
+
+            <%= link_to 'Dupliquer', duplicate_path(@event), :class => "btn btn-primary" %>
+            <%= link_to 'Retour', events_path, :class => "btn btn-primary" %>
+
+            <%= link_to "Enregistrer dans Google Calendar", @lien, class: "btn btn-primary" %>
+        </div>
+    </div>
 </div>
-
-
-<!-- Ajouter au calendrier Google transformer l heure en Greenwich -2h été -->
-<% @debut = @event.debut - 2.hour %>
-<% @fin = @event.fin - 2.hour %>
-
-<% @text = @event.titre.gsub(' ','+') %>
-<% @dates1 = @debut.to_s[0..3] + @debut.to_s[5..6] + @debut.to_s[8..9]  %>
-<% @dates2 =  "T" + @debut.to_s[11..12] + @debut.to_s[14..15] + @debut.to_s[17..18] + "Z/" %>
-<% @dates3 = @fin.to_s[0..3] + @fin.to_s[5..6] + @fin.to_s[8..9] %>
-<% @dates4 = "T" + @fin.to_s[11..12] + @fin.to_s[14..15] + @fin.to_s[17..18] + "Z/" %>
-<% @dates = @dates1 + @dates2 + @dates3 + @dates4 %>
-<% @details = @event.description.gsub(' ','+') %>
-<% @location = @event.cp.gsub(' ','+') + "," + @event.ville.gsub(' ','+') %>
-
-<!-- Ajouter au calendrier Google-->
-<% @text =  @text  %>
-<% @dates1 = @debut.to_s[0..3] + @debut.to_s[5..6] + @debut.to_s[8..9]  %>
-<% @dates2 =  "T" + @debut.to_s[11..12] + @debut.to_s[14..15] + @debut.to_s[17..18] + "Z/" %>
-<% @dates3 = @fin.to_s[0..3] + @fin.to_s[5..6] + @fin.to_s[8..9] %>
-<% @dates4 = "T" + @fin.to_s[11..12] + @fin.to_s[14..15] + @fin.to_s[17..18] + "Z" %>
-<% @dates = @dates1 + @dates2 + @dates3 + @dates4 %>
-<% @details = @event.description.gsub(' ','+') %>
-<% @location = @event.cp.gsub(' ','+') + "," + @event.ville.gsub(' ','+') %>
-
-<% @lien = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + @text + "&dates=" + @dates + "&details=" + @details +"&location=" + @location + "&sf=true&output=xml#eventpage_6" %>
-
-<p class= "text-center">
-    <% if (current_user == @event.user) %>
-         <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
-         <%= link_to 'Supprimer', event_path(@event), method: :delete, :class => "btn btn-primary" %>
-    <% end %>
-    <%= link_to 'Dupliquer', edit_event_path(@event), :class => "btn btn-primary" %>
-    <%= link_to 'Retour', events_path, :class => "btn btn-primary" %>
-
-    <%= link_to "Enregistrer dans Google Calendar", @lien, class: "btn btn-primary" %>
-</p>
-

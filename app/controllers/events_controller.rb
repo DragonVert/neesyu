@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :duplicate]
 
   # GET /events
   # GET /events.json
@@ -48,6 +48,12 @@ class EventsController < ApplicationController
   def edit
   end
 
+  # GET /events/1/duplicate
+  def duplicate
+        session[:duplicate] = true
+        render :edit
+  end
+
   # POST /events
   # POST /events.json
   def create
@@ -68,7 +74,8 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    if (params[:commit] == "Dupliquer")
+    if (session[:duplicate])
+        session[:duplicate] = false
         @event = Event.new(event_params)
         @event.user = current_user
         @event.set_search

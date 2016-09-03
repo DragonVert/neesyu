@@ -24,10 +24,11 @@
 
           <!-- <div class="form-actions"> -->
           <% if @event.persisted? %>
-              <% if current_user == @event.user %>
+              <% if session[:duplicate] %>
+                  <%= f.button :submit , 'Dupliquer' , class: "btn-primary" %>
+              <% elsif current_user == @event.user %>
                     <%= f.button :submit , 'Enregistrer' , class: "btn-primary" %>
               <% end %>
-              <%= f.button :submit , 'Dupliquer' , class: "btn-primary" %>
           <% else %>
               <%= f.button :submit , 'Créer', class: "btn-primary" %>
           <% end %>
