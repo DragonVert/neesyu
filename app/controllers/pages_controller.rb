@@ -8,27 +8,29 @@ class PagesController < ApplicationController
             @ligne = params[:mots].downcase
             @mot = @ligne.split(' ')
 
-            @events = []
-            @profils = []
+            @events = Event.all
+            @profils = Profil.all
+            # rechercher successivement dans la liste avec les mots
             @mot.each do |mot|
                 # chercher les evenements avec mot
-                @liste_events = search_event_string(mot)
-                @events = @events + @liste_events
+                @events = search_event_string(mot,@events)
 
                 # chercher les profils avec mot
-                @liste_profils = search_profil_string(mot)
-                @profils = @profils + @liste_profils
-
+                @profils = search_profil_string(mot,@profils)
             end
 
-            @events.sort_by! { |e| e.debut }
-            @profils.sort_by! { |e| e.pseudo }
+            if @events
+                @events.sort_by! { |e| e.debut }
+            end
 
-            @afficher = (@profils.count > 0) || (@events.count > 0)
+            if @profils
+                @profils.sort_by! { |e| e.pseudo }
+            end
+
+            @afficher = (@nb_events_trouves + @nb_profils_trouves) > 0
 
             if !@afficher
                 flash[:notice] = "Aucun résultat à votre recherche"
-                redirect_to (:back)
             else
                 flash[:notice] = "Nous avons trouve #{@nb_events_trouves} events et #{@nb_profils_trouves} profils !!"
             end
@@ -36,10 +38,10 @@ class PagesController < ApplicationController
         end
   end
 
-  def search_event_string(mot)
+  def search_event_string(mot,events)
 
-        # Liste des evenements
-        @events_search = Event.all
+        # Liste des evenements dans laquelle chercher
+        @events_search = events
         if @events_search.nil?
             @events_search = []
             @nb_events_trouves = 0
@@ -52,10 +54,10 @@ class PagesController < ApplicationController
         return @events_search
   end
 
-  def search_profil_string(mot)
+  def search_profil_string(mot,profils)
 
-        # Liste des profils
-        @profils_search = Profil.all
+        # Liste des profils dans laquelle chercher
+        @profils_search = profils
         if @profils_search.nil?
             @profils_search = []
             @nb_profils_trouves = 0
