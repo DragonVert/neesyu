@@ -14,7 +14,12 @@
                             <% end %>
                         </div>
                         <div class="col-xs-9 col-sm-10 col-md-10 "> <b> <%= event.titre %> </b> <br>
-                            <font size=-1>par <%=event.user.profil.pseudo %> à <%= event.ville %></font>
+                            <font size=-1>
+                                              <% if event.user.profil %>
+                                                 par   <%= event.user.profil.pseudo %>
+                                              <% end %>
+
+                            à <%= event.ville %></font>
 
                             <% if event.prix.to_i > 0 %>
                                 <font size=-1>   <%= event.prix %> <sup>€</sup> </font>

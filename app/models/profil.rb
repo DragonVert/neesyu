@@ -1,5 +1,6 @@
 class Profil < ApplicationRecord
   belongs_to :user
+  validates :pseudo, uniqueness:
 
     # Mettre a jour le search_text
     def set_search
