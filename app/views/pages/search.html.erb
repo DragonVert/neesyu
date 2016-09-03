@@ -2,12 +2,14 @@
             <!-- On affiche si non vide -->
             <% @afficher = false %>
 
-            <% if (@profils.count > 0) %>
+            <!-- s il y a des profils correspondant -->
+            <% if @profils %>
                 <% @afficher = true %>
                 <%= render template: "profils/index" %>
             <% end %>
 
-            <% if @events.count > 0 %>
+            <!-- s il y a des events correspondant -->
+            <% if @events %>
                 <% @afficher = true %>
                 <%= render template: "events/index" %>
             <% end %>
