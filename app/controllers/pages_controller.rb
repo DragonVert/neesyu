@@ -4,9 +4,9 @@ class PagesController < ApplicationController
   def contact
   end
   def search
-
         if params[:mots]
-            @mot = params[:mots].split(' ')
+            @ligne = params[:mots].downcase
+            @mot = @ligne.split(' ')
 
             @events = []
             @profils = []
