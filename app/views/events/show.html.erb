@@ -104,7 +104,7 @@
             <% @lien = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + @text + "&dates=" + @dates + "&details=" + @details +"&location=" + @location + "&sf=true&output=xml#eventpage_6" %>
             <% if (current_user == @event.user) %>
                  <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
-                 <%= link_to 'Supprimer', event_path(@event), method: :delete, :class => "btn btn-primary" %>
+                 <%= link_to 'Supprimer', event_path(@event), method: :delete, :class => "btn btn-primary", data: { confirm: "Are you sure?" } %>
             <% end %>
 
             <%= link_to 'Dupliquer', duplicate_path(@event), :class => "btn btn-primary" %>
