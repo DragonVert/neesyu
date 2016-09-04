@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_one :profil, dependent: :destroy
   has_many :events, dependent: :destroy
   has_many :participations, dependent: :destroy
-  has_attachment :avatar
+  has_attachment :avatar, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,7 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 
 <% @titre_page = 'Liste profils' %>
+<font color="#9A3619">
 <h4 class="text-center"> <em>Les profils</em></h4>
 <hr>
 
@@ -17,7 +16,6 @@
                 </div>
 
                  <div class="col-xs-9 col-xs-offset-1 col-sm-6 col-sm-offset-0 text-left">
-                          <font color="#9A3619">
                           <%= profil.pseudo %>  (<%= profil.prenom %> <%= profil.nom %>) <br>
                           <em> <%= profil.activite %> </em>
                           <hr>
@@ -26,4 +24,5 @@
         <% end %>
     <% end %>
 </div>
+</font>
 
