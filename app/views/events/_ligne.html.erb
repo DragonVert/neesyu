@@ -8,7 +8,7 @@
 
                             <% if event.user.avatar? %>
                                      <%= cl_image_tag event.user.avatar.path, width: 30, height: 30, crop: :fill,
-                                        radius: 5 %>
+                                        radius: 5, gravity: :face %>
                             <% else %>
                                          .O.
                             <% end %>
