@@ -29,10 +29,10 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Les événements", events_path %> </li>
         <li><%= link_to "Les profils", profils_path %> </li>
+        <li><%= link_to "Créer un événement", new_event_path %> </li>
         <% if !user_signed_in? %>
             <li><%= link_to "Login", new_user_session_path %></li>
         <% else %>
-            <li><%= link_to "Créer un événement", new_event_path %> </li>
             <li> <%= link_to "Contact", contact_path %> </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
