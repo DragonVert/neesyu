@@ -50,8 +50,17 @@ class EventsController < ApplicationController
 
   # GET /events/1/duplicate
   def duplicate
+    if !current_user
+        flash[:alert] = "Pour dupliquer un événement vous devez vous connecter et avoir créé un profil"
+        redirect_to new_user_session_path
+
+    elsif (current_user.profil.nil?)
+        flash[:alert] = "Vous devez créer un profil pour dupliquer un evenement"
+        redirect_to new_profil_path
+    else
         session[:duplicate] = true
         render :edit
+    end
   end
 
   # POST /events
