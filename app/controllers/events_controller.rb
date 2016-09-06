@@ -33,11 +33,11 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     if !current_user
-        flash[:alert] = "Vous devez vous connectez pour creer un evenement"
+        flash[:alert] = "Vous devez vous connecter pour créer un événement"
         redirect_to new_user_session_path
 
     elsif (current_user.profil.nil?)
-        flash[:alert] = "Vous devez vous créer un profil pour creer un evenement"
+        flash[:alert] = "Vous devez vous créer un profil pour créer un événement"
         redirect_to new_profil_path
     else
         @event = Event.new
