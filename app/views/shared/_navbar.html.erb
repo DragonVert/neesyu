@@ -28,8 +28,8 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Les événements", events_path %> </li>
-        <li><%= link_to "Les profils", profils_path %> </li>
         <li><%= link_to "Créer un événement", new_event_path %> </li>
+        <li><%= link_to "Les membres", profils_path %> </li>
         <% if !user_signed_in? %>
             <li><%= link_to "Login", new_user_session_path %></li>
         <% else %>
