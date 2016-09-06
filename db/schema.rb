@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904101644) do
+ActiveRecord::Schema.define(version: 20160906215049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20160904101644) do
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
+  create_table "interets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_interets_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_interets_on_user_id", using: :btree
+  end
+
   create_table "participations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
@@ -73,7 +82,17 @@ ActiveRecord::Schema.define(version: 20160904101644) do
     t.datetime "updated_at",  null: false
     t.string   "activite"
     t.text     "search_text"
+    t.boolean  "pro"
     t.index ["user_id"], name: "index_profils_on_user_id", using: :btree
+  end
+
+  create_table "suivis", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "profil_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profil_id"], name: "index_suivis_on_profil_id", using: :btree
+    t.index ["user_id"], name: "index_suivis_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,7 +113,11 @@ ActiveRecord::Schema.define(version: 20160904101644) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "interets", "events"
+  add_foreign_key "interets", "users"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "users"
   add_foreign_key "profils", "users"
+  add_foreign_key "suivis", "profils"
+  add_foreign_key "suivis", "users"
 end

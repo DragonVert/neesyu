@@ -2,6 +2,7 @@ class Event < ApplicationRecord
 
     belongs_to :user
     has_many :participations, dependent: :destroy
+    has_many :interets, dependent: :destroy
 
     has_attachment :photo, dependent: :destroy
 

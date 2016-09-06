@@ -1,5 +1,6 @@
 class Profil < ApplicationRecord
   belongs_to :user
+  has_many :suivis, dependent: :destroy
   validates :pseudo, uniqueness:
 
     # Mettre a jour le search_text
