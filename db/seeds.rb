@@ -5,7 +5,7 @@ else
   puts ("User avec goundor@orange.fr n existe pas, on le cree")
   @user = User.create!( email:"goundor@orange.fr", password:"foobar")
 
-  @profil = Profil.create!( nom:"Schweiger", prenom:"Amélie", site:"http://www.lesviesdansent.fr/", activite:"5 rythmes", user: @user)
+  @profil = Profil.create!( nom:"Schweiger", prenom:"Amélie", site:"http://www.lesviesdansent.fr/", activite:"5 rythmes", pro: true, user: @user)
   @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
   @profil.set_search; @profil.save
 
@@ -59,7 +59,7 @@ else
   @user = User.create!( email:"carinebourny.5r@gmail.com", password:"foobar")
 
 
-  @profil = Profil.create!( nom:"Bourny", prenom:"Carine", site:"http://www.coeur-danse-presence.com", activite:"5 rythmes", user: @user)
+  @profil = Profil.create!( nom:"Bourny", prenom:"Carine", site:"http://www.coeur-danse-presence.com", activite:"5 rythmes", pro: true, user: @user)
   @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
   @profil.set_search; @profil.save
 
@@ -116,7 +116,7 @@ else
   @user = User.create!( email:"justdancewithlife.uk@gmail.com", password:"foobar")
 
 
-  @profil = Profil.create!( nom:"Chantereau", prenom:"Cyrill", site:"http://www.justdancewithlife.com/", activite:"Movement medecine", user: @user)
+  @profil = Profil.create!( nom:"Chantereau", prenom:"Cyrill", site:"http://www.justdancewithlife.com/", activite:"Movement medecine", pro: true, user: @user)
   @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
   @profil.set_search; @profil.save
 
@@ -164,7 +164,7 @@ else
   puts ("User garancem@msn.com n existe pas, on le cree")
   @user = User.create!( email:"garancem@msn.com", password:"foobar")
 
-  @profil = Profil.create!( nom:"Monziès", prenom:"Garance", site:"http://www.danseinspiree.com/", activite:"Openfloor", user: @user)
+  @profil = Profil.create!( nom:"Monziès", prenom:"Garance", site:"http://www.danseinspiree.com/", activite:"Openfloor", pro: true, user: @user)
   @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
   @profil.set_search; @profil.save
 
@@ -181,7 +181,7 @@ else
     puts ("User merlinlise@gmail.com n existe pas, on le cree")
     @user = User.create!( email:"merlinlise@gmail.com", password:"foobar")
 
-    @profil = Profil.create!( nom:"Merlin", prenom:"Lise ", site:"http://merlinlise.wixsite.com/dansenative", activite:"5 rythmes", user: @user)
+    @profil = Profil.create!( nom:"Merlin", prenom:"Lise ", site:"http://merlinlise.wixsite.com/dansenative", activite:"5 rythmes", pro: true, user: @user)
     @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
     @profil.set_search; @profil.save
 
@@ -237,7 +237,7 @@ else
     puts ("User marc.silvestre@ymail.com  n existe pas, on le cree")
     @user = User.create!( email:"marc.silvestre@ymail.com", password:"foobar")
 
-    @profil = Profil.create!( nom:"Silvestre", prenom:"Marc ", site:"http://www.marcsilvestre.com/", activite:"5 rythmes", user: @user)
+    @profil = Profil.create!( nom:"Silvestre", prenom:"Marc ", site:"http://www.marcsilvestre.com/", activite:"5 rythmes", pro: true, user: @user)
     @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
     @profil.set_search; @profil.save
 
@@ -265,7 +265,7 @@ else
     puts ("User bodyvoiceandbeing@gmail.com n existe pas, on le cree")
     @user = User.create!( email:"bodyvoiceandbeing@gmail.com", password:"foobar")
 
-    @profil = Profil.create!( nom:"Wilberforce", prenom:"Peter", site:"http://www.bodyvoiceandbeing.com/", activite:"5 rythmes", user: @user)
+    @profil = Profil.create!( nom:"Wilberforce", prenom:"Peter", site:"http://www.bodyvoiceandbeing.com/", activite:"5 rythmes", pro: true, user: @user)
     @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
     @profil.set_search; @profil.save
 
@@ -323,7 +323,7 @@ else
     puts ("User inmotioneurope@gmail.com n existe pas, on le cree")
     @user = User.create!( email:"inmotioneurope@gmail.com", password:"foobar")
 
-    @profil = Profil.create!( nom:"Chambalou", prenom:"Véronique", site:"http://www.inmotioneurope.com/", activite:"Movement medecine", user: @user)
+    @profil = Profil.create!( nom:"Chambalou", prenom:"Véronique", site:"http://www.inmotioneurope.com/", activite:"Movement medecine", pro: true, user: @user)
     @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
     @profil.set_search; @profil.save
 
@@ -345,7 +345,7 @@ else
     puts ("User ozedait@gmail.com n existe pas, on le cree")
     @user = User.create!( email:"ozedait@gmail.com", password:"foobar")
 
-    @profil = Profil.create!( nom:"AIT", prenom:"Omar ", site:"https://omar5rythmes.wordpress.com/", activite:"Danse des 5 rythmes", user: @user)
+    @profil = Profil.create!( nom:"AIT", prenom:"Omar ", site:"https://omar5rythmes.wordpress.com/", activite:"Danse des 5 rythmes", pro: true, user: @user)
     @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
     @profil.set_search; @profil.save
 
@@ -373,7 +373,7 @@ else
     puts ("User lnerot@yahoo.fr n existe pas, on le cree")
     @user = User.create!( email:"lnerot@yahoo.fr", password:"foobar")
 
-    @profil = Profil.create!( nom:"NEROT", prenom:"Lucie", site:"http://www.dancingacrossborders.com/", activite:"Openfloor", user: @user)
+    @profil = Profil.create!( nom:"NEROT", prenom:"Lucie", site:"http://www.dancingacrossborders.com/", activite:"Openfloor", pro: true, user: @user)
     @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
     @profil.set_search; @profil.save
 end
