@@ -237,8 +237,7 @@ else
     puts ("User marc.silvestre@ymail.com  n existe pas, on le cree")
     @user = User.create!( email:"marc.silvestre@ymail.com", password:"foobar")
 
-    @profil = Profil.create!( nom:"Silvestre", prenom:"Marc ", site:"http://www.marcsilvestre.com/", activite:"5 rythmes", pro: true, user: @user)
-    @profil.pseudo = @profil.prenom.capitalize + " " + @profil.nom.first.capitalize + "."
+    @profil = Profil.create!( nom:"Silvestre", prenom:"Marc ", site:"http://www.marcsilvestre.com/", activite:"5 rythmes", pro: true, pseudo: "Marc S.", user: @user)
     @profil.set_search; @profil.save
 
     @evt = Event.new; @evt.titre = "VAGUES 5 RYTHMES "; @evt.description = "Cours de 5 rythmes"; @evt.debut = DateTime.new( 2016  ,  7  ,  21 ,  19 ,  30 ); @evt.fin = DateTime.new( 2016  ,  7  ,  21 ,  21 ,  30 ); @evt.prix =   20 ; @evt.lieu = "MICADANSES - Studio May B"; @evt.adresse = "15 rue Geoffroy l Asnier "; @evt.cp = "75004"; @evt.ville = "Paris"; @evt.pays = "France"; @evt.reduit = "Tarif réduit 15 euros selon situation"; @evt.transport = "Metro St Paul"; @evt.contact = ""; @evt.user = @user; @evt.set_search; @evt.save
