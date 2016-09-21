@@ -105,10 +105,8 @@
             <% if (current_user == @event.user) %>
                  <%= link_to 'Modifer', edit_event_path(@event), :class => "btn btn-primary" %>
                  <%= link_to 'Supprimer', event_path(@event), method: :delete, :class => "btn btn-primary", data: { confirm: "Are you sure?" } %>
+                 <%= link_to 'Dupliquer', duplicate_path(@event), :class => "btn btn-primary" %>
             <% end %>
-
-            <%= link_to 'Dupliquer', duplicate_path(@event), :class => "btn btn-primary" %>
-            <%= link_to 'Retour', events_path, :class => "btn btn-primary" %>
 
             <%= link_to "Enregistrer dans Google Calendar", @lien, class: "btn btn-primary" %>
 
