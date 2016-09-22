@@ -9,11 +9,7 @@
             <%= f.input :titre, placeholder: "Cours de 5 rythmes", label: "Nom de l événement" %>
             <%= f.input :description, placeholder: "Pour danser sans penser mais se dépenser..." %>
             <%= f.input :prix, placeholder: "0" %>
-            <div class="row">
-                <div class="col-xs-6">
-                    <%= f.input :debut, placeholder: DateTime.new, label: "Début AAAA/MM/JJ HH:MM" %>
-                </div>
-            </div>
+            <%= f.input :debut, placeholder: DateTime.new, label: "Début AAAA/MM/JJ HH:MM" %>
             <%= f.input :fin, placeholder: DateTime.new,  label: "Fin AAAA/MM/JJ HH:MM" %>
             <%= f.input :lieu, placeholder: "Salle May B" %>
             <%= f.input :adresse, placeholder: "16 rue Geoffroy d'Asnier" %>
