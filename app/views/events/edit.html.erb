@@ -3,8 +3,5 @@
 <% else %>
     <h1 class="text-center">Modifier l'événement</h1>
 <% end %>
-<%= render 'form', event: @event %>
+<%= render 'form' %>
 
-<div class="text-center">
-<%= link_to 'Retour', :back, class: "btn btn-primary" %>
-</div>
