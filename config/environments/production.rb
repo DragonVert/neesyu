@@ -103,5 +103,5 @@ Rails.application.configure do
   }
 end
 
-Rails.application.routes.default_url_options[:host] = 'neesyu.herokuapp.com'
+Rails.application.routes.default_url_options[:host] = 'smihug.herokuapp.com'
 
